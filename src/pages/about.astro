@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="소개" description="가늠은 작은 팀을 위한 데이터 분석 칼럼과 분석 서비스를 만듭니다.">
+  <article class="about">
+    <p class="eyebrow">About</p>
+    <h1>가늠</h1>
+    <p class="lead">가늠은 "대강 헤아려 보는 것"을 뜻합니다. 우리는 그 헤아림이 근거를 갖도록 돕습니다.</p>
+
+    <h2>칼럼</h2>
+    <p>분석가가 없는 작은 팀, 학생, 연구자가 자기 데이터를 스스로 읽을 수 있도록 분석 방법을 씁니다. 모든 칼럼은 계산 과정과 쿼리를 공개하고, 예시 데이터는 공개 데이터나 설명용으로 만든 데이터만 씁니다.</p>
+
+    <h2>원칙</h2>
+    <ul>
+      <li>정의가 먼저, 숫자는 그다음입니다.</li>
+      <li>모든 숫자에는 계산 방법과 출처를 붙입니다.</li>
+      <li>반가운 숫자일수록 먼저 의심합니다.</li>
+      <li>결정은 사람의 몫입니다. 우리는 근거까지 드립니다.</li>
+    </ul>
+
+    <h2>준비 중인 것</h2>
+    <p>자연어로 질문하면 데이터를 분석해 주는 분석 서비스를 만들고 있습니다. 엑셀 파일을 올리거나 BigQuery를 연결해 대화로 분석하고, 구독 없이 분석 한 건 단위로 이용하는 방식입니다.</p>
+  </article>
+</Base>
+
+<style>
+  .about { max-width: 720px; margin: 0 auto; padding: 64px 16px 0; font-family: var(--serif); font-size: 19px; line-height: 1.85; word-break: keep-all; }
+  .eyebrow { font-family: var(--sans); }
+  h1 { font-weight: 400; font-size: clamp(44px, 7vw, 72px); margin: 4px 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
+  .lead { font-size: 22px; margin: 0 0 40px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+  h2 { font-size: 26px; margin: 40px 0 8px; }
+  p { margin: 0 0 20px; }
+  ul { padding-left: 22px; }
+</style>

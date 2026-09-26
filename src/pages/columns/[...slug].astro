@@ -1,0 +1,87 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getColumns, formatDate } from '../../lib';
+
+export async function getStaticPaths() {
+  const columns = await getColumns();
+  return columns.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const d = entry.data;
+---
+<Base title={d.title} description={d.description}>
+  <article class="article">
+    <header class="a-head">
+      {d.draft && <p class="draft-note">초안 — 배포 빌드에는 나가지 않습니다</p>}
+      <h1>{d.title}</h1>
+      <p class="a-desc">{d.description}</p>
+      <dl class="a-meta">
+        <div><dt>게시일</dt><dd>{formatDate(d.date)}</dd></div>
+        {d.tags.length > 0 && <div><dt>태그</dt><dd>{d.tags.map((t) => <span class="tag">{t}</span>)}</dd></div>}
+        <div><dt>필자</dt><dd>{d.author}</dd></div>
+        {d.authorBio && <div><dt>필자 소개</dt><dd>{d.authorBio}</dd></div>}
+      </dl>
+    </header>
+
+    {toc.length > 2 && (
+      <nav class="toc" aria-label="목차">
+        <p class="toc-title">목차</p>
+        <ol>
+          {toc.map((h) => <li class={`d${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>)}
+        </ol>
+      </nav>
+    )}
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <footer class="a-foot">
+      <a href="/columns/">← 칼럼 목록</a>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .article { max-width: 720px; margin: 0 auto; padding: 56px 16px 0; }
+  .draft-note { display: inline-block; font-size: 12.5px; background: var(--invert-bg); color: var(--invert-text); padding: 2px 10px; border-radius: 4px; margin: 0 0 16px; }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(32px, 5vw, 46px); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 16px; word-break: keep-all; }
+  .a-desc { font-family: var(--serif); font-size: 20px; color: var(--muted); margin: 0 0 28px; word-break: keep-all; }
+  .a-meta { margin: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--hair); padding: 12px 0; display: grid; gap: 6px; font-size: 14px; }
+  .a-meta div { display: grid; grid-template-columns: 84px 1fr; gap: 12px; }
+  .a-meta dt { color: var(--muted); }
+  .a-meta dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .toc { margin: 32px 0 8px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--hair); border-radius: 6px; font-size: 14.5px; }
+  .toc-title { margin: 0 0 8px; font-weight: 700; }
+  .toc ol { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 4px; }
+  .toc li.d3 { padding-left: 16px; color: var(--muted); }
+  .toc a { text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .a-foot { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--hair); font-size: 14px; }
+  .a-foot a { text-decoration: none; color: var(--muted); }
+
+  .prose { font-family: var(--serif); font-size: 19px; line-height: 1.85; word-break: keep-all; overflow-wrap: anywhere; }
+  .prose :global(h2) { font-size: 28px; line-height: 1.3; margin: 56px 0 12px; letter-spacing: -0.015em; scroll-margin-top: 24px; }
+  .prose :global(h3) { font-size: 22px; margin: 40px 0 8px; scroll-margin-top: 24px; }
+  .prose :global(p) { margin: 0 0 22px; }
+  .prose :global(a) { text-underline-offset: 3px; }
+  .prose :global(blockquote) { margin: 28px 0; padding: 4px 0 4px 22px; border-left: 3px solid var(--rule); font-size: 21px; }
+  .prose :global(blockquote p) { margin: 0; }
+  .prose :global(ul), .prose :global(ol) { padding-left: 24px; margin: 0 0 22px; }
+  .prose :global(li) { margin: 4px 0; }
+  .prose :global(code) { font-family: var(--mono); font-size: 0.8em; background: var(--code-bg); padding: 1px 5px; border-radius: 3px; }
+  .prose :global(pre) { font-size: 14px; line-height: 1.6; padding: 16px 18px; border-radius: 6px; overflow-x: auto; background: var(--code-bg) !important; margin: 0 0 24px; }
+  .prose :global(pre code) { background: none; padding: 0; font-size: 1em; }
+  .prose :global(hr) { border: 0; border-top: 1px solid var(--hair); margin: 48px 0; }
+  .prose :global(table) { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14.5px; margin: 0 0 8px; }
+  .prose :global(th), .prose :global(td) { border-bottom: 1px solid var(--hair); padding: 8px 10px; text-align: left; }
+  .prose :global(th) { border-bottom: 1px solid var(--rule); font-weight: 600; }
+  .prose :global(.table-scroll) { overflow-x: auto; margin: 28px 0 0; }
+  .prose :global(figure) { margin: 32px 0; }
+  .prose :global(figcaption), .prose :global(.caption) { font-family: var(--sans); font-size: 13.5px; color: var(--muted); text-align: center; margin: 10px 0 28px; }
+  .prose :global(.refs) { font-family: var(--sans); font-size: 14px; color: var(--muted); }
+</style>

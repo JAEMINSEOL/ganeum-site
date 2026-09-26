@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import ColumnList from '../../components/ColumnList.astro';
+import { getColumns } from '../../lib';
+
+const columns = await getColumns();
+---
+<Base title="칼럼" description="가늠의 데이터 분석 칼럼 전체 목록">
+  <section class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Columns</p>
+      <h1>분석 칼럼</h1>
+      <p class="sub">매주 한두 편. 숫자를 잘못 읽기 쉬운 지점과, 작은 팀이 바로 써볼 수 있는 분석 방법을 씁니다.</p>
+    </header>
+    <ColumnList columns={columns} />
+  </section>
+</Base>
+
+<style>
+  .page-head { padding: 64px 0 24px; border-bottom: 1px solid var(--rule); }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 6vw, 64px); margin: 4px 0 12px; letter-spacing: -0.03em; }
+  .sub { margin: 0; color: var(--muted); max-width: 620px; word-break: keep-all; }
+</style>

@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroArt from '../components/HeroArt.astro';
+import ColumnList from '../components/ColumnList.astro';
+import { getColumns } from '../lib';
+
+const columns = (await getColumns()).slice(0, 5);
+---
+<Base>
+  <section class="hero wrap">
+    <div class="hero-text">
+      <h1>숫자를<br />제대로 가늠하는 법</h1>
+      <p class="lede">리텐션, 퍼널, AB 테스트 — 작은 팀이 자기 데이터를 읽을 때 꼭 필요한 분석을 칼럼으로 씁니다.</p>
+      <a class="pill lg" href="/columns/">칼럼 읽기</a>
+    </div>
+    <div class="hero-visual"><HeroArt /></div>
+  </section>
+
+  <section class="wrap">
+    <div class="list-head">
+      <h2>최근 칼럼</h2>
+      <a href="/columns/" class="more">전체 보기 →</a>
+    </div>
+    <ColumnList columns={columns} />
+  </section>
+</Base>
+
+<style>
+  .hero {
+    display: grid; align-items: center; gap: 32px;
+    padding-top: 72px; padding-bottom: 88px;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (min-width: 900px) {
+    .hero { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); padding-top: 112px; padding-bottom: 128px; }
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 400; margin: 0;
+    font-size: clamp(48px, 9vw, 112px); line-height: 1.02; letter-spacing: -0.035em;
+    word-break: keep-all;
+  }
+  .lede { font-size: clamp(18px, 2vw, 22px); margin: 32px 0 40px; max-width: 560px; word-break: keep-all; }
+  .hero-visual { display: none; }
+  @media (min-width: 900px) { .hero-visual { display: block; max-width: 440px; justify-self: end; width: 100%; } }
+  .more { font-size: 14px; text-decoration: none; color: var(--muted); }
+  .more:hover { color: var(--text); }
+</style>

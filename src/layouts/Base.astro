@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = '데이터를 가늠하는 분석 칼럼. 숫자를 제대로 읽는 법을 씁니다.' } = Astro.props;
+const fullTitle = title ? `${title} — 가늠` : '가늠 — 데이터 분석 칼럼';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="wordmark" href="/">가늠<small>GANEUM</small></a>
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="/columns/">칼럼</a>
+          <a class="hide-sm" href="/about/">소개</a>
+          <a class="pill" href="/columns/">칼럼 읽기</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} 가늠 · data-ganeum.com</span>
+        <nav>
+          <a href="/columns/">칼럼</a>
+          <a href="/about/">소개</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

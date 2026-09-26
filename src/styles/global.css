@@ -1,0 +1,79 @@
+:root {
+  --bg: #f7f4ed;
+  --surface: #fbfaf6;
+  --text: #191919;
+  --muted: #6b6b6b;
+  --faint: #a8a59d;
+  --rule: #191919;
+  --hair: #dedad0;
+  --code-bg: #efebe2;
+  --invert-bg: #191919;
+  --invert-text: #f7f4ed;
+
+  --serif: "Times New Roman", Times, "Noto Serif KR", "Nanum Myeongjo", serif;
+  --sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --surface: #1b1b19; --text: #ecebe6; --muted: #a3a09a; --faint: #6e6c66;
+    --rule: #ecebe6; --hair: #34332f; --code-bg: #22221f; --invert-bg: #ecebe6; --invert-text: #141413;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --surface: #1b1b19; --text: #ecebe6; --muted: #a3a09a; --faint: #6e6c66;
+  --rule: #ecebe6; --hair: #34332f; --code-bg: #22221f; --invert-bg: #ecebe6; --invert-text: #141413;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--sans); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img, svg { max-width: 100%; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 720px) { .wrap { padding: 0 48px; } }
+
+/* header */
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
+.wordmark { font-family: var(--serif); font-size: 32px; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+.wordmark small { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: .08em; margin-left: 8px; color: var(--muted); vertical-align: 6px; }
+.nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.nav .hide-sm { display: none; }
+@media (min-width: 720px) { .nav .hide-sm { display: inline; } }
+.pill {
+  display: inline-block; background: var(--invert-bg); color: var(--invert-text) !important;
+  border-radius: 999px; padding: 10px 20px; text-decoration: none !important; font-weight: 500; font-size: 15px; white-space: nowrap;
+}
+.pill.lg { font-size: 19px; padding: 14px 32px; }
+
+/* footer */
+.site-footer { border-top: 1px solid var(--rule); margin-top: 96px; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 40px; font-size: 13.5px; color: var(--muted); }
+.site-footer a { text-decoration: none; }
+.site-footer nav { display: flex; gap: 20px; }
+
+/* column list */
+.eyebrow { font-size: 13px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 40px 0 8px; border-bottom: 1px solid var(--hair); }
+.list-head h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; margin: 0; }
+.col-item { display: grid; gap: 6px; padding: 28px 0; border-bottom: 1px solid var(--hair); text-decoration: none; }
+.col-item:hover h3 { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.col-item .meta { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.col-item h3 { font-family: var(--serif); font-size: 26px; line-height: 1.3; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+.col-item p { margin: 0; color: var(--muted); font-size: 15.5px; max-width: 720px; }
+.tag { font-size: 12.5px; border: 1px solid var(--hair); border-radius: 999px; padding: 1px 10px; color: var(--muted); }
+.draft-badge { font-size: 12px; background: var(--invert-bg); color: var(--invert-text); border-radius: 4px; padding: 0 6px; }
+.empty { padding: 48px 0; color: var(--muted); font-family: var(--serif); font-size: 20px; }
+
+/* 칼럼 그림용 타임라인 표 */
+.timeline { min-width: 620px; }
+.timeline th, .timeline td { text-align: center !important; padding: 6px 4px !important; }
+.timeline th:nth-child(9), .timeline td:nth-child(9) { background: var(--code-bg); }

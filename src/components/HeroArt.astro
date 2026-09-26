@@ -1,0 +1,43 @@
+---
+// 모노톤 장식 — 눈금(가늠), 산점도와 추세선(데이터), 점선 궤적. 색은 currentColor 하나.
+const ticks = Array.from({ length: 37 }, (_, i) => i);
+const dots = [
+  [118, 402], [140, 380], [152, 396], [171, 360], [186, 372], [203, 338], [214, 352],
+  [232, 318], [248, 330], [262, 300], [281, 309], [296, 280], [312, 292], [331, 262],
+  [344, 271], [360, 246], [377, 252], [392, 226],
+];
+---
+<svg class="hero-art" viewBox="0 0 480 520" aria-hidden="true" fill="none">
+  <g stroke="currentColor">
+    <!-- 게이지 -->
+    <path d="M 70 250 A 170 170 0 0 1 410 250" stroke-width="1.5" />
+    {ticks.map((i) => {
+      const a = Math.PI + (i / 36) * Math.PI;
+      const long = i % 6 === 0;
+      const r1 = 170, r2 = long ? 150 : 160;
+      const x1 = 240 + r1 * Math.cos(a), y1 = 250 + r1 * Math.sin(a);
+      const x2 = 240 + r2 * Math.cos(a), y2 = 250 + r2 * Math.sin(a);
+      return <line x1={x1.toFixed(1)} y1={y1.toFixed(1)} x2={x2.toFixed(1)} y2={y2.toFixed(1)} stroke-width={long ? 1.6 : 0.9} />;
+    })}
+    <line x1="240" y1="250" x2="352" y2="126" stroke-width="2.2" />
+    <circle cx="240" cy="250" r="7" fill="currentColor" />
+
+    <!-- 추세선 -->
+    <path d="M 100 420 L 420 205" stroke-width="1.2" stroke-dasharray="6 5" />
+    <!-- 궤적 -->
+    <path d="M 20 500 C 140 470, 300 490, 470 440" stroke-width="1" stroke-dasharray="2 5" />
+    <path d="M 60 40 C 120 90, 90 150, 160 180" stroke-width="1" stroke-dasharray="2 5" />
+  </g>
+  <g fill="currentColor">
+    {dots.map(([x, y]) => <circle cx={x} cy={y} r="4" />)}
+    <path d="M430 70 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4z" />
+    <path d="M60 330 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z" />
+    <path d="M455 330 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5z" />
+    <circle cx="396" cy="40" r="2" /><circle cx="30" cy="210" r="2" /><circle cx="470" cy="160" r="1.8" />
+    <circle cx="120" cy="470" r="1.8" /><circle cx="380" cy="480" r="2" />
+  </g>
+</svg>
+
+<style>
+  .hero-art { width: 100%; height: auto; color: var(--text); }
+</style>
