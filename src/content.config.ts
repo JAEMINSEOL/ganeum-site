@@ -9,7 +9,8 @@ const schema = z.object({
   description: z.string(),
   date: z.coerce.date(),
   tags: z.array(z.string()).default([]),
-  author: z.string(),
+  // 필자 정보는 모든 글이 같아 화면에 표시하지 않는다 (남겨 둔 값은 무시)
+  author: z.string().optional(),
   authorBio: z.string().optional(),
   // 공개 저장소에는 draft: false 인 글만 올린다
   draft: z.boolean().default(false),

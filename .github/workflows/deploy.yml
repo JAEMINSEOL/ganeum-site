@@ -5,6 +5,11 @@ on:
     branches: [ main ]
 
   workflow_dispatch:
+  # 예약 게시: 매일 09:00 KST(00:00 UTC)에 다시 빌드해 게시일이 된 글을 올린다.
+  # GitHub 예약 실행은 몇 분~수십 분 늦을 수 있어 09:20 KST에 한 번 더 돈다.
+  schedule:
+    - cron: '0 0 * * *'
+    - cron: '20 0 * * *'
 
 permissions:
   contents: read

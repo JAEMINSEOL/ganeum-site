@@ -13,7 +13,6 @@ const { columns } = Astro.props;
       <a class="col-item" href={`/columns/${c.id}/`}>
         <div class="meta">
           <span>{formatDate(c.data.date)}</span>
-          <span>{c.data.author}</span>
           {c.data.draft && <span class="draft-badge">초안</span>}
         </div>
         <h3>{c.data.title}</h3>

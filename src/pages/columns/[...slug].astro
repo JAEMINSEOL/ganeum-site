@@ -22,8 +22,6 @@ const d = entry.data;
       <dl class="a-meta">
         <div><dt>게시일</dt><dd>{formatDate(d.date)}</dd></div>
         {d.tags.length > 0 && <div><dt>태그</dt><dd>{d.tags.map((t) => <span class="tag">{t}</span>)}</dd></div>}
-        <div><dt>필자</dt><dd>{d.author}</dd></div>
-        {d.authorBio && <div><dt>필자 소개</dt><dd>{d.authorBio}</dd></div>}
       </dl>
     </header>
 
