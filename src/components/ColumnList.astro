@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { formatDate } from '../lib';
+import ViewCount from './ViewCount.astro';
 
 interface Props { columns: CollectionEntry<'columns'>[] }
 const { columns } = Astro.props;
@@ -14,6 +15,7 @@ const { columns } = Astro.props;
         <div class="meta">
           <span>{formatDate(c.data.date)}</span>
           {c.data.draft && <span class="draft-badge">초안</span>}
+          <ViewCount path={`/columns/${c.id}/`} />
         </div>
         <h3>{c.data.title}</h3>
         <p>{c.data.description}</p>

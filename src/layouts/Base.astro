@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ViewCountScript from '../components/ViewCountScript.astro';
 
 interface Props {
   title?: string;
@@ -49,5 +50,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         </nav>
       </div>
     </footer>
+    <ViewCountScript />
   </body>
 </html>

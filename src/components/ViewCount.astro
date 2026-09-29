@@ -1,0 +1,7 @@
+---
+// 조회수 자리 — 값은 브라우저에서 GoatCounter 공개 카운터 API로 채운다.
+// 설정이 없거나 불러오지 못하면 아무것도 보이지 않는다(자리 차지 없음).
+interface Props { path: string }
+const { path } = Astro.props;
+---
+<span class="view-count" data-gc-path={path} hidden></span>
