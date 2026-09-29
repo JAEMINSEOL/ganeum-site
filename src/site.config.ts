@@ -1,0 +1,9 @@
+// 사이트 설정 — 공개 저장소이므로 비밀값을 두지 않는다.
+
+// 조회수 집계: GoatCounter (쿠키 없음, 개인 식별 정보 미저장)
+// https://www.goatcounter.com/help/visitor-counter
+// 1) goatcounter.com 에서 사이트 코드를 만들고
+// 2) 사이트 설정의 "Allow adding visitor counts on your website"를 켠 뒤
+// 3) 아래에 코드(예: 'ganeum')를 넣으면 집계와 조회수 표시가 켜진다. 비어 있으면 둘 다 꺼진다.
+// 개발 중 화면 확인용: 환경변수 PUBLIC_VIEWS_DEMO=1 이면 가짜 숫자를 보여 준다(배포 빌드에는 쓰지 말 것).
+export const GOATCOUNTER_CODE = '';
