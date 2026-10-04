@@ -5,9 +5,6 @@ date: 2026-10-04T09:00:00+09:00
 tags: ["peeking", "A/B 테스트", "조기 중단"]
 draft: false
 ---
-안만 발행된다 ===== -->
-<article>
-
 <blockquote><p><strong>실험 결과를 매일 확인하고 유의해지면 멈추는 습관은, 아무 차이가 없는 실험도 다섯 중 하나꼴로 “승리”로 바꿉니다.</strong></p></blockquote>
 
 ## 들어가며
