@@ -1,7 +1,7 @@
 ---
 title: "결과를 매일 들여다보면 무슨 일이 생길까?"
 description: "훔쳐보기(peeking)와 실험을 멈추는 시점"
-date: 2026-10-06T09:00:00+09:00
+date: 2026-10-04T09:00:00+09:00
 tags: ["peeking", "A/B 테스트", "조기 중단"]
 draft: false
 ---
