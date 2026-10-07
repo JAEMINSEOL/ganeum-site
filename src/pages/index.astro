@@ -3,15 +3,29 @@ import Base from '../layouts/Base.astro';
 import HeroArt from '../components/HeroArt.astro';
 import ColumnList from '../components/ColumnList.astro';
 import { getColumns } from '../lib';
+import { APP_URL } from '../site.config';
 
 const columns = (await getColumns()).slice(0, 5);
+const devAppUrl = import.meta.env.DEV ? import.meta.env.PUBLIC_APP_URL : undefined;
+const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
 ---
 <Base>
   <section class="hero wrap">
     <div class="hero-text">
       <h1>숫자를<br />제대로 가늠하는 법</h1>
       <p class="lede">리텐션, 퍼널, AB 테스트 — 작은 팀이 자기 데이터를 읽을 때 꼭 필요한 분석을 칼럼으로 씁니다.</p>
-      <a class="pill lg" href="/columns/">칼럼 읽기</a>
+      <div class="cta">
+        {appUrl && (
+          <form method="post" action={`${appUrl}/auth/login`} class="start-form">
+            <input type="hidden" name="next" value="/" />
+            <button type="submit" class="pill lg start">
+              <span class="start-main">가늠 시작</span>
+              <span class="start-sub">Google로 로그인</span>
+            </button>
+          </form>
+        )}
+        <a class="pill lg" href="/columns/">칼럼 읽기</a>
+      </div>
     </div>
     <div class="hero-visual"><HeroArt /></div>
   </section>
@@ -40,6 +54,15 @@ const columns = (await getColumns()).slice(0, 5);
     word-break: keep-all;
   }
   .lede { font-size: clamp(18px, 2vw, 22px); margin: 32px 0 40px; max-width: 560px; word-break: keep-all; }
+  .cta { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; }
+  .start-form { margin: 0; display: flex; }
+  .pill.start { background: transparent; color: var(--text) !important; border: 1.5px solid var(--rule);
+    cursor: pointer; font: inherit; display: inline-flex; flex-direction: column; align-items: center;
+    justify-content: center; line-height: 1.15; padding-top: 8px; padding-bottom: 8px; }
+  .pill.start:hover { background: var(--invert-bg); color: var(--invert-text) !important; }
+  .start-main { font-size: 19px; font-weight: 500; }
+  .start-sub { font-size: 12px; opacity: .75; margin-top: 2px; font-family: var(--sans); }
+  .cta .pill.lg { display: inline-flex; align-items: center; }
   .hero-visual { display: none; }
   @media (min-width: 900px) { .hero-visual { display: block; max-width: 440px; justify-self: end; width: 100%; } }
   .more { font-size: 14px; text-decoration: none; color: var(--muted); }
