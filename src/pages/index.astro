@@ -19,11 +19,12 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
           <form method="post" action={`${appUrl}/auth/login`} class="start-form">
             <input type="hidden" name="next" value="/" />
             <button type="submit" class="pill lg start">
-              <span class="start-main">가늠 시작</span>
-              <span class="start-sub">Google로 로그인</span>
+              <span class="start-main">로그인하여 분석하기</span>
+              <span class="start-sub">Google로 회원가입</span>
             </button>
           </form>
         )}
+        <a class="pill lg outline" href="/request/">분석 의뢰</a>
         <a class="pill lg" href="/columns/">칼럼 읽기</a>
       </div>
     </div>
@@ -54,15 +55,20 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
     word-break: keep-all;
   }
   .lede { font-size: clamp(18px, 2vw, 22px); margin: 32px 0 40px; max-width: 560px; word-break: keep-all; }
-  .cta { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; }
+  /* 버튼들은 같은 크기 — 좁은 화면은 세로로 쌓고, 넓은 화면은 같은 너비로 한 줄 */
+  .cta { display: grid; grid-template-columns: 1fr; grid-auto-rows: 1fr; gap: 12px; max-width: 320px; }
+  @media (min-width: 640px) { .cta { grid-auto-flow: column; grid-auto-columns: 1fr; max-width: none; width: max-content; } }
   .start-form { margin: 0; display: flex; }
+  .start-form .pill { width: 100%; }
   .pill.start { background: transparent; color: var(--text) !important; border: 1.5px solid var(--rule);
     cursor: pointer; font: inherit; display: inline-flex; flex-direction: column; align-items: center;
     justify-content: center; line-height: 1.15; padding-top: 8px; padding-bottom: 8px; }
   .pill.start:hover { background: var(--invert-bg); color: var(--invert-text) !important; }
   .start-main { font-size: 19px; font-weight: 500; }
   .start-sub { font-size: 12px; opacity: .75; margin-top: 2px; font-family: var(--sans); }
-  .cta .pill.lg { display: inline-flex; align-items: center; }
+  .cta .pill.lg { display: inline-flex; align-items: center; justify-content: center; }
+  .pill.outline { background: transparent; color: var(--text) !important; border: 1.5px solid var(--rule); }
+  .pill.outline:hover { background: var(--invert-bg); color: var(--invert-text) !important; }
   .hero-visual { display: none; }
   @media (min-width: 900px) { .hero-visual { display: block; max-width: 440px; justify-self: end; width: 100%; } }
   .more { font-size: 14px; text-decoration: none; color: var(--muted); }

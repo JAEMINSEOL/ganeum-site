@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+
+const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
+---
+<Base title="분석 의뢰" description="엑셀·CSV 자료를 보내 주시면 가늠이 직접 분석해 근거와 함께 답해 드립니다. 회당 3~10만 원, 예약금 10%로 시작.">
+  <article class="req">
+    <p class="eyebrow">Analysis Request</p>
+    <h1>분석 의뢰</h1>
+    <p class="lead">자료만 보내 주세요. 가늠이 직접 분석해 인사이트를 찾고, 근거와 함께 답해 드립니다.</p>
+
+    <dl class="terms">
+      <div>
+        <dt>비용</dt>
+        <dd><strong>회당 3~10만 원</strong><span>자료 규모와 분석 범위를 보고 시작 전에 견적을 드립니다.</span></dd>
+      </div>
+      <div>
+        <dt>시작</dt>
+        <dd><strong>예약금 10%</strong><span>견적의 10%만 먼저 내시면 바로 분석을 시작합니다.</span></dd>
+      </div>
+      <div>
+        <dt>결과</dt>
+        <dd><strong>근거가 남는 분석</strong><span>모든 결과에 계산 과정과 근거를 함께 드립니다.</span></dd>
+      </div>
+    </dl>
+
+    <h2>이런 분석을 합니다</h2>
+    <ol class="kinds">
+      <li><span class="n">01</span><span class="k">매출·고객 분석</span><span class="w">소규모 사업자</span></li>
+      <li><span class="n">02</span><span class="k">과제·논문 통계</span><span class="w">대학생·대학원생</span></li>
+      <li><span class="n">03</span><span class="k">실험·설문 검정</span><span class="w">연구자</span></li>
+    </ol>
+
+    <h2>진행 순서</h2>
+    <ol class="steps">
+      <li>오픈채팅으로 <strong>자료 종류·궁금한 점·마감일</strong>을 알려 주세요.</li>
+      <li>견적을 확인하고 예약금 10%를 내시면 분석을 시작합니다.</li>
+      <li>분석 결과를 계산 근거와 함께 받아 보세요.</li>
+    </ol>
+
+    <div class="cta">
+      <a class="pill lg" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
+      <p class="note">1:1 오픈채팅방으로 연결됩니다. 개인정보가 담긴 자료는 보내기 전에 지우거나 가려 주세요.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .req { max-width: 720px; margin: 0 auto; padding: 64px 16px 0; font-family: var(--serif); font-size: 19px; line-height: 1.85; word-break: keep-all; }
+  .eyebrow { font-family: var(--sans); }
+  h1 { font-weight: 400; font-size: clamp(44px, 7vw, 72px); margin: 4px 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
+  .lead { font-size: 22px; margin: 0 0 32px; }
+  h2 { font-size: 26px; margin: 48px 0 12px; }
+
+  .terms { margin: 0; border-top: 1px solid var(--rule); }
+  .terms div { display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .terms dt { font-family: var(--sans); font-size: 14px; color: var(--muted); padding-top: 4px; }
+  .terms dd { margin: 0; display: flex; flex-direction: column; }
+  .terms strong { font-size: 24px; font-weight: 600; line-height: 1.4; }
+  .terms span { font-size: 16px; color: var(--muted); line-height: 1.6; }
+
+  .kinds { list-style: none; padding: 0; margin: 0; }
+  .kinds li { display: grid; grid-template-columns: 44px 1fr auto; align-items: baseline; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .kinds .n { font-size: 22px; }
+  .kinds .k { font-weight: 600; }
+  .kinds .w { font-family: var(--sans); font-size: 14px; color: var(--muted); }
+
+  .steps { padding-left: 24px; margin: 0; }
+  .steps li { margin-bottom: 6px; }
+
+  .cta { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
+  .cta .pill { display: inline-flex; }
+  .note { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.6; }
+</style>
