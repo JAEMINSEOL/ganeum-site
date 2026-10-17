@@ -61,7 +61,6 @@ img, svg { max-width: 100%; }
 .site-footer nav { display: flex; gap: 20px; }
 
 /* column list */
-.eyebrow { font-size: 13px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
 .list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 40px 0 8px; border-bottom: 1px solid var(--hair); }
 .list-head h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; margin: 0; }
 .col-item { display: grid; gap: 6px; padding: 28px 0; border-bottom: 1px solid var(--hair); text-decoration: none; }

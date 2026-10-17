@@ -6,7 +6,6 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 ---
 <Base title="분석 의뢰" description="엑셀·CSV 자료를 보내 주시면 가늠이 직접 분석해 근거와 함께 답해 드립니다. 회당 3~10만 원, 예약금 10%로 시작.">
   <article class="req">
-    <p class="eyebrow">Analysis Request</p>
     <h1>분석 의뢰</h1>
     <p class="lead">자료만 보내 주세요. 가늠이 직접 분석해 인사이트를 찾고, 근거와 함께 답해 드립니다.</p>
 
@@ -25,6 +24,10 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
       </div>
     </dl>
 
+    <div class="cta-top">
+      <a class="pill lg" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
+    </div>
+
     <h2>이런 분석을 합니다</h2>
     <ol class="kinds">
       <li><span class="n">01</span><span class="k">매출·고객 분석</span><span class="w">소규모 사업자</span></li>
@@ -41,7 +44,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 
     <h2>취소·환불</h2>
     <ul>
-      <li>분석 결과를 전달한 뒤에는 환불되지 않습니다. 결과물은 돌려받을 수 없기 때문입니다.</li>
+      <li>분석 결과를 전달한 뒤에는 환불되지 않습니다.</li>
       <li>결과에 가늠의 계산 오류가 있으면 무상으로 고쳐 드립니다.</li>
       <li>그 밖의 취소·일정 변경은 오픈채팅에서 상의해 주세요.</li>
     </ul>
@@ -78,7 +81,6 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 
 <style>
   .req { max-width: 720px; margin: 0 auto; padding: 64px 16px 0; font-family: var(--serif); font-size: 19px; line-height: 1.85; word-break: keep-all; }
-  .eyebrow { font-family: var(--sans); }
   h1 { font-weight: 400; font-size: clamp(44px, 7vw, 72px); margin: 4px 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
   .lead { font-size: 22px; margin: 0 0 32px; }
   h2 { font-size: 26px; margin: 48px 0 12px; }
@@ -102,6 +104,8 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
   .steps { padding-left: 24px; margin: 0; }
   .steps li { margin-bottom: 6px; }
 
+  .cta-top { margin: 28px 0 0; }
+  .cta-top .pill { display: inline-flex; }
   .cta { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
   .cta .pill { display: inline-flex; }
   .note { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.6; }
