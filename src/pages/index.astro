@@ -12,7 +12,7 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
 <Base>
   <section class="hero wrap">
     <div class="hero-text">
-      <h1>숫자를<br />제대로 가늠하는 법</h1>
+      <h1>숫자를<br />제대로 <span class="nw">가늠하는 법</span></h1>
       <p class="lede">리텐션, 퍼널, AB 테스트 — 작은 팀이 자기 데이터를 읽을 때 꼭 필요한 분석을 칼럼으로 씁니다.</p>
       <div class="cta">
         {appUrl && (
@@ -24,7 +24,7 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
             </button>
           </form>
         )}
-        <a class="pill lg outline" href="/request/">분석 의뢰</a>
+        <a class="pill lg accent" href="/request/">분석 의뢰</a>
         <a class="pill lg" href="/columns/">칼럼 읽기</a>
       </div>
     </div>
@@ -67,8 +67,7 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
   .start-main { font-size: 19px; font-weight: 500; }
   .start-sub { font-size: 12px; opacity: .75; margin-top: 2px; font-family: var(--sans); }
   .cta .pill.lg { display: inline-flex; align-items: center; justify-content: center; }
-  .pill.outline { background: transparent; color: var(--text) !important; border: 1.5px solid var(--rule); }
-  .pill.outline:hover { background: var(--invert-bg); color: var(--invert-text) !important; }
+  .nw { white-space: nowrap; }
   .hero-visual { display: none; }
   @media (min-width: 900px) { .hero-visual { display: block; max-width: 440px; justify-self: end; width: 100%; } }
   .more { font-size: 14px; text-decoration: none; color: var(--muted); }
