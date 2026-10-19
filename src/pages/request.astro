@@ -25,7 +25,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
     </dl>
 
     <div class="cta-top">
-      <a class="pill lg" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
+      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
     </div>
 
     <h2>이런 분석을 합니다</h2>
@@ -37,7 +37,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 
     <h2>진행 순서</h2>
     <ol class="steps">
-      <li>오픈채팅으로 <strong>자료 종류·궁금한 점·마감일</strong>을 알려 주세요. 견적에는 열 이름과 행 수 정도면 충분합니다.</li>
+      <li>오픈채팅으로 자료 종류·궁금한 점·마감일을 알려 주세요. 견적에는 열 이름과 행 수 정도면 충분합니다.</li>
       <li>견적과 일정을 확인하고 예약금을 내시면 분석을 시작합니다.</li>
       <li>분석 결과를 계산 근거와 함께 받아 보시고, 잔금을 정산합니다.</li>
     </ol>
@@ -72,7 +72,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
     </ul>
 
     <div class="cta">
-      <a class="pill lg" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
+      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
       <p class="note">1:1 오픈채팅방으로 연결됩니다. 의뢰 전에 위 취소·환불, 자료와 개인정보 안내를 확인해 주세요.</p>
     </div>
 
@@ -90,6 +90,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 
   .terms { margin: 0; border-top: 1px solid var(--rule); }
   .terms div { display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  @media (max-width: 480px) { .terms div { grid-template-columns: 1fr; gap: 2px; } }
   .terms dt { font-family: var(--sans); font-size: 14px; color: var(--muted); padding-top: 4px; }
   .terms dd { margin: 0; display: flex; flex-direction: column; }
   .terms strong { font-size: 24px; font-weight: 600; line-height: 1.4; }
