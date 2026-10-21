@@ -3,6 +3,7 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getColumns, formatDate } from '../../lib';
 import ViewCount from '../../components/ViewCount.astro';
+import TermTooltip from '../../components/TermTooltip.astro';
 
 export async function getStaticPaths() {
   const columns = await getColumns();
@@ -43,6 +44,7 @@ const d = entry.data;
       <a href="/columns/">← 칼럼 목록</a>
     </footer>
   </article>
+  <TermTooltip />
 </Base>
 
 <style>
