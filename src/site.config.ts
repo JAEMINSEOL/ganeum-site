@@ -12,4 +12,4 @@ export const GOATCOUNTER_CODE = '';
 // 앱이 배포되기 전에는 비워 둔다(버튼 숨김). 배포 후: 'https://app.data-ganeum.com'
 // 앱 쪽 apps/web 의 LOGIN_START_ORIGINS 에 이 사이트 주소(https://data-ganeum.com)가 들어 있어야 한다.
 // 개발 확인용: 환경변수 PUBLIC_APP_URL=http://localhost:3000 으로 개발 서버를 띄우면 그 주소를 쓴다(개발 서버 전용).
-export const APP_URL = '';
+export const APP_URL = 'https://ganeum-web-586607323563.asia-northeast3.run.app';
