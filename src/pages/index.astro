@@ -24,7 +24,10 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
             </button>
           </form>
         )}
-        <a class="pill lg accent" href="/request/">분석 의뢰</a>
+        <a class="pill lg accent stack" href="/request/">
+          <span class="start-main">분석 의뢰</span>
+          <span class="start-sub">상담·견적 무료</span>
+        </a>
         <a class="pill lg" href="/columns/">칼럼 읽기</a>
       </div>
     </div>
@@ -66,6 +69,8 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
   .pill.start:hover { background: var(--invert-bg); color: var(--invert-text) !important; }
   .start-main { font-size: 19px; font-weight: 500; }
   .start-sub { font-size: 12px; opacity: .75; margin-top: 2px; font-family: var(--sans); }
+  .pill.stack { flex-direction: column; line-height: 1.15; padding-top: 8px; padding-bottom: 8px; }
+  .pill.accent .start-sub { opacity: .9; }
   .cta .pill.lg { display: inline-flex; align-items: center; justify-content: center; }
   .nw { white-space: nowrap; }
   .hero-visual { display: none; }
