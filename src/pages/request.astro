@@ -4,29 +4,36 @@ import Base from '../layouts/Base.astro';
 const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 
 ---
-<Base title="분석 의뢰" description="엑셀·CSV 자료를 보내 주시면 가늠이 직접 분석해 근거와 함께 답해 드립니다. 회당 3~10만 원, 예약금 10%로 시작.">
+<Base title="분석 의뢰" description="엑셀·CSV 자료를 보내 주시면 가늠이 직접 분석해 근거와 함께 답해 드립니다. 상담과 견적은 무료, 1만 원부터 시작하는 가벼운 분석.">
   <article class="req">
     <h1>분석 의뢰</h1>
     <p class="lead">자료만 보내 주세요. 가늠이 직접 분석해 인사이트를 찾고, 근거와 함께 답해 드립니다.</p>
 
+    <div class="free">
+      <p class="free-title">상담과 견적은 무료입니다</p>
+      <p class="free-body">오픈채팅에서 어떤 자료인지, 무엇이 궁금한지만 알려 주세요. 분석이 가능한지, 비용과 일정이 얼마나 드는지 무료로 안내해 드립니다. 견적을 보고 진행하지 않으셔도 비용은 들지 않습니다.</p>
+      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">무료로 상담하기</a>
+      <p class="free-note">카카오톡 1:1 오픈채팅으로 연결됩니다. 자료는 견적 단계에서 열 이름과 행 수 정도만 알려 주셔도 됩니다.</p>
+    </div>
+
     <dl class="terms">
       <div>
+        <dt>상담</dt>
+        <dd><strong>상담·견적 무료</strong><span>진행 여부는 견적을 보고 정하시면 됩니다.</span></dd>
+      </div>
+      <div>
         <dt>비용</dt>
-        <dd><strong>회당 3~10만 원</strong><span>자료 규모와 분석 범위를 보고 시작 전에 견적을 드립니다. 견적에 없던 작업은 미리 여쭙고, 동의하실 때만 비용이 추가됩니다.</span></dd>
+        <dd><strong>1만 원부터</strong><span>가벼운 분석은 1만 원부터 시작합니다. 자료 규모와 분석 범위를 보고 시작 전에 견적을 드립니다. 견적에 없던 작업은 미리 여쭙고, 동의하실 때만 비용이 추가됩니다.</span></dd>
       </div>
       <div>
         <dt>시작</dt>
-        <dd><strong>예약금 10%</strong><span>견적의 10%를 예약금으로 먼저 받고, 잔금은 결과를 확인하신 뒤 정산합니다.</span></dd>
+        <dd><strong>예약금 10%만 내고 시작</strong><span>결과를 받아 보기 전까지 내실 돈은 예약금(견적의 10%)뿐입니다. 1만 원 분석이라면 1천 원입니다. 잔금은 결과를 확인하신 뒤 정산합니다.</span></dd>
       </div>
       <div>
         <dt>결과</dt>
         <dd><strong>근거가 남는 분석</strong><span>모든 결과에 계산 과정과 근거를 함께 드립니다.</span></dd>
       </div>
     </dl>
-
-    <div class="cta-top">
-      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
-    </div>
 
     <h2>이런 분석을 합니다</h2>
     <ol class="kinds">
@@ -37,7 +44,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 
     <h2>진행 순서</h2>
     <ol class="steps">
-      <li>오픈채팅으로 자료 종류·궁금한 점·마감일을 알려 주세요. 견적에는 열 이름과 행 수 정도면 충분합니다.</li>
+      <li><strong>무료 상담:</strong> 오픈채팅으로 자료 종류·궁금한 점·마감일을 알려 주세요. 견적에는 열 이름과 행 수 정도면 충분합니다.</li>
       <li>견적과 일정을 확인하고 예약금을 내시면 분석을 시작합니다.</li>
       <li>분석 결과를 계산 근거와 함께 받아 보시고, 잔금을 정산합니다.</li>
     </ol>
@@ -72,7 +79,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
     </ul>
 
     <div class="cta">
-      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">카카오톡 오픈채팅으로 의뢰하기</a>
+      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">무료로 상담하기</a>
       <p class="note">1:1 오픈채팅방으로 연결됩니다. 의뢰 전에 위 취소·환불, 자료와 개인정보 안내를 확인해 주세요.</p>
     </div>
 
@@ -88,6 +95,11 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
   ul li { margin-bottom: 6px; font-size: 17px; line-height: 1.75; }
   p { margin: 0 0 20px; }
 
+  .free { margin: 0 0 36px; padding: 24px; border: 1.5px solid var(--accent); border-radius: 16px; }
+  .free-title { font-size: 24px; font-weight: 600; margin: 0 0 8px; font-family: var(--serif-strong); color: var(--accent); }
+  .free-body { font-size: 17px; line-height: 1.75; margin: 0 0 18px; }
+  .free .pill { display: inline-flex; }
+  .free-note { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 12px 0 0; line-height: 1.6; }
   .terms { margin: 0; border-top: 1px solid var(--rule); }
   .terms div { display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
   @media (max-width: 480px) { .terms div { grid-template-columns: 1fr; gap: 2px; } }
@@ -105,8 +117,6 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
   .steps { padding-left: 24px; margin: 0; }
   .steps li { margin-bottom: 6px; }
 
-  .cta-top { margin: 28px 0 0; }
-  .cta-top .pill { display: inline-flex; }
   .cta { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
   .cta .pill { display: inline-flex; }
   .note { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.6; }
