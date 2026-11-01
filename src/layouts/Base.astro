@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ViewCountScript from '../components/ViewCountScript.astro';
+import { SITE_TITLE } from '../site.config';
 
 interface Props {
   title?: string;
@@ -8,7 +9,7 @@ interface Props {
 }
 const { title, description = '데이터를 가늠하는 분석 칼럼. 숫자를 제대로 읽는 법을 씁니다. 분석 의뢰는 상담·견적 무료, 1만 원부터.' } = Astro.props;
 const ogImage = new URL('/og.png', Astro.site);
-const fullTitle = title ? `${title} — 가늠` : '가늠 — 데이터 분석 칼럼';
+const fullTitle = title ? `${title} — 가늠` : SITE_TITLE;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
