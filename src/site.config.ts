@@ -13,3 +13,12 @@ export const GOATCOUNTER_CODE = '';
 // 앱 쪽 apps/web 의 LOGIN_START_ORIGINS 에 이 사이트 주소(https://data-ganeum.com)가 들어 있어야 한다.
 // 개발 확인용: 환경변수 PUBLIC_APP_URL=http://localhost:3000 으로 개발 서버를 띄우면 그 주소를 쓴다(개발 서버 전용).
 export const APP_URL = 'https://ganeum-web-586607323563.asia-northeast3.run.app';
+
+// 검색 결과·브라우저 탭·공유 카드에 보이는 제목 (2026-11-01 사용자 결정 — 안 E)
+// SITE_TITLE: 홈 제목. PAGE_TITLES: 페이지별 제목(앞부분). 각 칼럼 글은 "칼럼 제목 — 가늠" 으로 자동.
+// 검색 결과에는 앞쪽 약 30자만 보이므로 핵심어를 앞에 둔다.
+export const SITE_TITLE = '가늠 — AI 데이터 분석·소규모 데이터 분석 의뢰';
+export const PAGE_TITLES = {
+  request: '데이터 분석 의뢰 · 상담·견적 무료',
+  columns: '데이터 분석 칼럼',
+};

@@ -1,11 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { PAGE_TITLES } from '../../site.config';
 import ColumnList from '../../components/ColumnList.astro';
 import { getColumns } from '../../lib';
 
 const columns = await getColumns();
 ---
-<Base title="칼럼" description="가늠의 데이터 분석 칼럼 전체 목록">
+<Base title={PAGE_TITLES.columns} description="가늠의 데이터 분석 칼럼 전체 목록">
   <section class="wrap">
     <header class="page-head">
       <h1>분석 칼럼</h1>
