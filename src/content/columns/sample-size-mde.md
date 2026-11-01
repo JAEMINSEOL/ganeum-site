@@ -1,6 +1,6 @@
 ---
 title: "몇 명이 모이면 실험을 끝낼 수 있을까?"
-description: "실험 전에 정하는 표본 수와 MDE"
+description: "A/B 테스트나 설문 전에 표본 수를 정하는 방법. MDE와 검출력을 숫자 예시로 설명."
 date: 2026-10-08T07:00:00+09:00
 tags: ["표본 수", "MDE", "검출력"]
 draft: false
