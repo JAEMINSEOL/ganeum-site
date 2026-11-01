@@ -1,8 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getColumns, formatDate } from '../lib';
+import { APP_URL } from '../site.config';
 
 const columns = (await getColumns()).slice(0, 4);
+const devAppUrl = import.meta.env.DEV ? import.meta.env.PUBLIC_APP_URL : undefined;
+const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
 ---
 <Base>
 <div class="ruler" aria-hidden="true">
@@ -16,7 +19,7 @@ const columns = (await getColumns()).slice(0, 4);
     <div class="wrap">
       <div class="intro-head reveal">
         <h1 id="t1">숫자를<br>제대로 <span class="nw">가늠하는 법</span></h1>
-        <p class="lede">가늠은 작은 팀과 개인이 자기 데이터를 제대로 읽도록 돕습니다. 흩어진 신호를 좌표로 옮기고, 좌표를 분포로 쌓아 읽습니다.</p>
+        <p class="lede">가늠은 작은 팀과 개인이 자기 데이터를 제대로 읽도록 돕습니다.<br>흩어진 신호를 좌표로 옮기고, 좌표를 분포로 쌓아 읽습니다.</p>
       </div>
       <div class="instrument" aria-label="레이더가 찾은 신호를 직교좌표와 분포로 옮기는 그림">
         <figure class="panel radar-panel">
@@ -55,11 +58,18 @@ const columns = (await getColumns()).slice(0, 4);
     <div class="wrap grid">
       <div class="reveal">
         <p class="step">2</p>
-        <h2 id="t3">파일을 올리고<br>질문하세요<span class="soon">준비중</span></h2>
+        <h2 id="t3">파일을 올리고<br>질문하세요</h2>
         <p class="lede">엑셀·CSV를 올리면 AI가 표를 읽고 질문에 답합니다. 답마다 실행한 계산과 지표의 정의가 함께 붙어, 숫자가 어디서 나왔는지 확인할 수 있습니다.</p>
         <div class="cta">
-          <span class="btn" role="link" aria-disabled="true">AI 분석 시작하기<small>준비중입니다</small></span>
-          <p class="note">지금은 일부 계정으로만 시험 운영하고 있습니다. 열리면 이 버튼으로 바로 시작할 수 있습니다.</p>
+          {appUrl ? (
+            <form method="post" action={`${appUrl}/auth/login`} class="start-form">
+              <input type="hidden" name="next" value="/" />
+              <button type="submit" class="btn ink">AI 분석 시작하기<small>Google로 시작</small></button>
+            </form>
+          ) : (
+            <a class="btn ink" href="/request/">AI 분석 시작하기<small>Google로 시작</small></a>
+          )}
+          <p class="note">Google 계정으로 로그인해 시작합니다. 지금은 일부 계정으로만 시험 운영하고 있습니다.</p>
         </div>
       </div>
       <div class="desk" aria-label="AI 분석 화면 예시">
@@ -137,7 +147,7 @@ p{text-wrap:pretty;margin:0}
 .btn:hover{transform:translateY(-2px)}
 .btn.accent{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn.ink{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.btn[aria-disabled="true"]{cursor:not-allowed;background:var(--sheet);border-style:dashed;border-color:var(--off);color:var(--mute);transform:none}
+.start-form{margin:0;display:contents}
 .cta{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
 .cta .note{font-size:13.5px;color:var(--mute);max-width:24em}
 @media(max-width:520px){.btn{width:100%}}
@@ -185,7 +195,6 @@ p{text-wrap:pretty;margin:0}
 .axis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;font-size:11px;color:var(--mute);text-align:center;font-variant-numeric:tabular-nums;margin-top:4px}
 .sqlline{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--mute);margin-top:8px}
 .sqlline b{color:var(--ink);font-weight:600}
-.soon{display:inline-block;font-size:12px;font-weight:700;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:0 8px;margin-left:8px;vertical-align:.3em;font-family:var(--sans)}
 
 /* 4. 칼럼: 원고 더미 */
 .stack{display:grid;gap:12px}
