@@ -21,4 +21,5 @@ export const SITE_TITLE = '가늠 — AI 데이터 분석·소규모 데이터 �
 export const PAGE_TITLES = {
   request: '데이터 분석 의뢰 · 상담·견적 무료',
   columns: '데이터 분석 칼럼',
+  refund: '환불정책',
 };
