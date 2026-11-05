@@ -22,4 +22,6 @@ export const PAGE_TITLES = {
   request: '데이터 분석 의뢰 · 상담·견적 무료',
   columns: '데이터 분석 칼럼',
   refund: '환불정책',
+  terms: '이용약관',
+  privacy: '개인정보처리방침',
 };
