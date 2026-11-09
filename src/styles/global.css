@@ -77,6 +77,8 @@ img, svg { max-width: 100%; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 40px; font-size: 13.5px; color: var(--muted); }
 .site-footer a { text-decoration: none; }
 .site-footer nav { display: flex; gap: 20px; }
+.site-footer .biz { font-style: normal; display: flex; flex-wrap: wrap; gap: 2px 6px; flex-basis: 100%; order: 3; }
+.site-footer .biz span + span::before { content: "· "; }
 
 /* column list */
 .list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 40px 0 8px; border-bottom: 1px solid var(--hair); }
