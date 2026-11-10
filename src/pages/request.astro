@@ -13,7 +13,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
     <div class="free">
       <p class="free-title">상담과 견적은 무료입니다</p>
       <p class="free-body">오픈채팅에서 어떤 자료인지, 무엇이 궁금한지만 알려 주세요. 분석이 가능한지, 비용과 일정이 얼마나 드는지 무료로 안내해 드립니다. 견적을 보고 진행하지 않으셔도 비용은 들지 않습니다.</p>
-      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">무료로 상담하기</a>
+      <a class="btn accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">무료로 상담하기</a>
       <p class="free-note">카카오톡 1:1 오픈채팅으로 연결됩니다. 자료는 견적 단계에서 열 이름과 행 수 정도만 알려 주셔도 됩니다. 상담방에 들어오시는 것만으로는 결제되지 않습니다.</p>
     </div>
 
@@ -37,11 +37,11 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
     </dl>
 
     <h2>이런 분석을 합니다</h2>
-    <ol class="kinds">
-      <li><span class="n">01</span><span class="k">매출·고객 분석</span><span class="w">소규모 사업자</span></li>
-      <li><span class="n">02</span><span class="k">통계 검토·해석</span><span class="w">대학생·대학원생</span></li>
-      <li><span class="n">03</span><span class="k">실험·설문 검정</span><span class="w">연구자</span></li>
-    </ol>
+    <ul class="kinds">
+      <li><span class="k">매출·고객 분석</span><span class="w">소규모 사업자</span></li>
+      <li><span class="k">통계 검토·해석</span><span class="w">대학생·대학원생</span></li>
+      <li><span class="k">실험·설문 검정</span><span class="w">연구자</span></li>
+    </ul>
 
     <h2>받는 결과물</h2>
     <ul>
@@ -92,7 +92,7 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
     </ul>
 
     <div class="cta">
-      <a class="pill lg accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">무료로 상담하기</a>
+      <a class="btn accent" href={KAKAO_OPEN_CHAT} target="_blank" rel="noopener noreferrer">무료로 상담하기</a>
       <p class="note">1:1 오픈채팅방으로 연결됩니다. 의뢰 전에 위 취소·환불, 자료와 개인정보 안내를 확인해 주세요.</p>
     </div>
 
@@ -100,40 +100,37 @@ const KAKAO_OPEN_CHAT = 'https://open.kakao.com/o/s8PWiMSi';
 </Base>
 
 <style>
-  .req { max-width: 720px; margin: 0 auto; padding: 64px 16px 0; font-family: var(--serif); font-size: 19px; line-height: 1.85; word-break: keep-all; }
-  h1 { font-weight: 400; font-size: clamp(44px, 7vw, 72px); margin: 4px 0 16px; letter-spacing: -0.03em; line-height: 1.1; }
-  .lead { font-size: 22px; margin: 0 0 32px; }
-  h2 { font-size: 26px; margin: 48px 0 12px; }
+  .req { max-width: 720px; margin: 0 auto; padding: 64px 16px 0; font-size: var(--fs-lead); line-height: 1.8; word-break: keep-all; }
+  h1 { font-weight: 700; font-size: var(--fs-h1); margin: 4px 0 16px; letter-spacing: -0.025em; line-height: 1.18; }
+  .lead { font-size: var(--fs-h3); margin: 0 0 32px; }
+  h2 { font-size: var(--fs-h2); font-weight: 700; letter-spacing: -0.025em; line-height: 1.18; margin: 48px 0 12px; }
   ul { padding-left: 22px; margin: 0; }
-  ul li { margin-bottom: 6px; font-size: 17px; line-height: 1.75; }
+  ul li { margin-bottom: 6px; font-size: var(--fs-body); line-height: 1.7; }
   p { margin: 0 0 20px; }
 
-  .free { margin: 0 0 36px; padding: 24px; border: 1.5px solid var(--accent); border-radius: 16px; }
-  .free-title { font-size: 24px; font-weight: 600; margin: 0 0 8px; font-family: var(--serif-strong); color: var(--accent); }
-  .free-body { font-size: 17px; line-height: 1.75; margin: 0 0 18px; }
-  .free .pill { display: inline-flex; }
-  .free-note { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 12px 0 0; line-height: 1.6; }
-  .sub-note { font-family: var(--sans); font-size: 14px; color: var(--muted); margin: 10px 0 0; }
-  .conditions { margin: 40px 0 0; padding: 4px 24px 20px; border: 1px solid var(--rule); border-radius: 16px; background: var(--surface); }
+  .free { margin: 0 0 36px; padding: 24px; border: 1.5px solid var(--accent); border-radius: var(--r-btn); }
+  .free-title { font-size: var(--fs-h3); font-weight: 700; margin: 0 0 8px; color: var(--accent); }
+  .free-body { font-size: var(--fs-body); line-height: 1.7; margin: 0 0 18px; }
+  .free-note { font-size: var(--fs-small); color: var(--muted); margin: 12px 0 0; line-height: 1.6; }
+  .sub-note { font-size: var(--fs-small); color: var(--muted); margin: 10px 0 0; }
+  .conditions { margin: 40px 0 0; padding: 4px 24px 20px; border: 1px solid var(--rule); border-radius: var(--r-btn); background: var(--surface); }
   .conditions h2 { margin-top: 20px; }
   .terms { margin: 0; border-top: 1px solid var(--rule); }
   .terms div { display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
   @media (max-width: 480px) { .terms div { grid-template-columns: 1fr; gap: 2px; } }
-  .terms dt { font-family: var(--sans); font-size: 14px; color: var(--muted); padding-top: 4px; }
+  .terms dt { font-size: var(--fs-small); color: var(--muted); padding-top: 4px; }
   .terms dd { margin: 0; display: flex; flex-direction: column; }
-  .terms strong { font-size: 24px; font-weight: 600; line-height: 1.4; }
-  .terms span { font-size: 16px; color: var(--muted); line-height: 1.6; }
+  .terms strong { font-size: var(--fs-h2); font-weight: 700; line-height: 1.3; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
+  .terms span { font-size: var(--fs-body); color: var(--muted); line-height: 1.6; }
 
   .kinds { list-style: none; padding: 0; margin: 0; }
-  .kinds li { display: grid; grid-template-columns: 44px 1fr auto; align-items: baseline; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
-  .kinds .n { font-size: 22px; }
+  .kinds li { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 12px; padding: 10px 0; margin: 0; font-size: var(--fs-lead); border-bottom: 1px solid var(--rule); }
   .kinds .k { font-weight: 600; }
-  .kinds .w { font-family: var(--sans); font-size: 14px; color: var(--muted); }
+  .kinds .w { font-size: var(--fs-small); color: var(--muted); }
 
   .steps { padding-left: 24px; margin: 0; }
   .steps li { margin-bottom: 6px; }
 
   .cta { margin: 48px 0 0; padding: 32px 0 0; border-top: 1px solid var(--rule); }
-  .cta .pill { display: inline-flex; }
-  .note { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.6; }
+  .note { font-size: var(--fs-small); color: var(--muted); margin: 14px 0 0; line-height: 1.6; }
 </style>

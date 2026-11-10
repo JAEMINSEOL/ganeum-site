@@ -319,17 +319,17 @@ const EFFECTIVE = '2026년 11월 5일';
 </Base>
 
 <style>
-  .doc { max-width: 720px; margin: 0 auto; padding: 64px 16px 80px; font-size: 17px; line-height: 1.8; word-break: keep-all; }
-  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 6vw, 56px); margin: 4px 0 8px; letter-spacing: -0.02em; line-height: 1.15; }
-  .meta { color: var(--muted); font-size: 15px; margin: 0 0 32px; }
-  h2 { font-family: var(--serif); font-size: 24px; margin: 48px 0 12px; }
-  h3 { font-size: 18px; margin: 28px 0 8px; }
+  .doc { max-width: 720px; margin: 0 auto; padding: 64px 16px 80px; font-size: var(--fs-body); line-height: 1.8; word-break: keep-all; }
+  h1 { font-weight: 700; font-size: var(--fs-h1); margin: 4px 0 8px; letter-spacing: -0.025em; line-height: 1.18; }
+  .meta { color: var(--muted); font-size: var(--fs-small); margin: 0 0 32px; }
+  h2 { font-size: var(--fs-h2); font-weight: 700; letter-spacing: -0.025em; line-height: 1.18; margin: 48px 0 12px; }
+  h3 { font-size: var(--fs-lead); font-weight: 700; margin: 28px 0 8px; }
   ul, ol { padding-left: 22px; margin: 0; }
   li { margin-bottom: 6px; }
   li > ul { margin-top: 6px; }
   .table { overflow-x: auto; margin: 12px 0 16px; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+  table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); line-height: 1.6; }
   th, td { border: 1px solid var(--rule); padding: 8px 10px; text-align: left; vertical-align: top; }
   th { background: var(--surface); font-weight: 600; }
-  code { font-size: 0.9em; }
+  code { font-size: var(--fs-small); }
 </style>
