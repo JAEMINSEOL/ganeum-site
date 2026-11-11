@@ -1,0 +1,164 @@
+---
+import Base from '../layouts/Base.astro';
+import { APP_URL, PAGE_TITLES } from '../site.config';
+
+// 티켓 상품 안내 — 토스페이먼츠 심사 보완(2026-11-11): 무형 서비스의 상품 상세(서비스 제공 기간, 환불 정책) 공개
+// 문안 정본: docs/legal/product-detail-2026-11-11.md "게시용 문안" (글자 그대로. 가운뎃점은 사이트 문장 규칙에 따라 줄을 나눠 풀었다)
+// 값의 출처: config/pricing.yaml payments.packages(가격, 티켓 수), purchase_expires_in_days(365), config/bits.yaml(티켓 사용량).
+//   설정을 바꾸면 정본 문서를 먼저 고치고 이 페이지를 따라 고친다. 환불 기준은 refund.astro, 앱 구매 화면(topup-0.6)과 같아야 한다.
+// 구매 경로 링크는 홈과 같은 앱 주소(APP_URL)의 로그인 화면.
+const appUrl = (APP_URL || '').replace(/\/$/, '');
+const loginUrl = appUrl ? `${appUrl}/login` : '';
+
+const usage = [
+  '분석하기 1회: 3티켓 (올린 파일의 기본 분석, 파일이 둘 이상이면 여러 파일 함께 보기 포함)',
+  '질문 1회: 가벼운 분석 1티켓, 자세한 분석 2티켓',
+  '파일 올리기와 컬럼 확정에는 티켓이 들지 않습니다.',
+];
+const products = [
+  {
+    id: 'ticket-3',
+    count: 3,
+    short: '티켓 3장',
+    name: '가늠 분석 티켓 3장',
+    price: '990원',
+    unit: '1장 330원',
+    example: '예: 분석하기 1회, 또는 가벼운 분석 질문 3회',
+  },
+  {
+    id: 'ticket-30',
+    count: 30,
+    short: '티켓 30장',
+    name: '가늠 분석 티켓 30장',
+    price: '9,900원',
+    unit: '1장 330원',
+    example: '예: 분석하기 10회, 또는 분석하기 4회와 자세한 분석 질문 9회',
+  },
+];
+const deliveryUrl = 'https://data-ganeum.com';
+const deliveryRest = '결제가 끝나면 티켓이 바로 계정에 들어옵니다. 배송은 없습니다.';
+const period = '결제일부터 365일(1년) 동안 사용할 수 있습니다.';
+const cardRefund = '쓰지 않은 티켓은 결제일부터 7일 안 전액, 그 뒤 결제일부터 365일 안에 신청하면 1장당 330원 환불';
+---
+<Base title={PAGE_TITLES.pricing} description="가늠 분석 티켓 3장(990원)과 30장(9,900원)의 구성, 제공 방식, 서비스 제공 기간(결제일부터 1년), 환불 정책, 판매자 정보를 안내합니다.">
+  <article class="pricing">
+    <h1>티켓 상품 안내</h1>
+    <p class="lede">가늠 AI 데이터 분석에 쓰는 티켓입니다. 구매할 때마다 한 번 결제하며, 정기결제나 자동 갱신은 없습니다.</p>
+
+    <div class="cards">
+      {products.map((p) => (
+        <section class="card" id={p.id} aria-labelledby={`${p.id}-name`}>
+          <svg class="ticket" viewBox="0 0 240 132" role="img" aria-label={`${p.short} 상품 이미지: 티켓 ${p.count}장`}>
+            {p.count > 3 && <path class="t-back2" d="M24 8h200a8 8 0 0 1 8 8v28a14 14 0 0 0 0 28v28a8 8 0 0 1-8 8H24a8 8 0 0 1-8-8V72a14 14 0 0 0 0-28V16a8 8 0 0 1 8-8z" />}
+            <path class="t-back" d="M16 16h200a8 8 0 0 1 8 8v28a14 14 0 0 0 0 28v28a8 8 0 0 1-8 8H16a8 8 0 0 1-8-8V80a14 14 0 0 0 0-28V24a8 8 0 0 1 8-8z" />
+            <path class="t-face" d="M8 24h200a8 8 0 0 1 8 8v28a14 14 0 0 0 0 28v28a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V88a14 14 0 0 0 0-28V32a8 8 0 0 1 8-8z" />
+            <line class="t-perf" x1="72" y1="32" x2="72" y2="116" />
+            <text class="t-label" x="43" y="80" text-anchor="middle">가늠</text>
+            <text x="142" y="94" text-anchor="middle"><tspan class="t-count">{p.count}</tspan><tspan class="t-unit" dx="4">장</tspan></text>
+          </svg>
+
+          <h2 id={`${p.id}-name`}>{p.name}</h2>
+          <p class="price"><span class="amount">{p.price}</span> <span class="unit">({p.unit})</span></p>
+
+          <dl>
+            <div>
+              <dt>구성</dt>
+              <dd>
+                가늠 AI 데이터 분석에 쓰는 티켓 {p.count}장
+                <ul>
+                  {usage.map((u) => <li>{u}</li>)}
+                  <li>{p.example}</li>
+                </ul>
+              </dd>
+            </div>
+            <div><dt>제공 방식</dt><dd>온라인 서비스(<span class="nw">{deliveryUrl}</span>). {deliveryRest}</dd></div>
+            <div><dt>서비스 제공 기간</dt><dd>{period}</dd></div>
+            <div><dt>정기결제</dt><dd>없음 (한 번만 결제)</dd></div>
+            <div>
+              <dt>환불</dt>
+              <dd>{cardRefund}. <a href="#refund-summary">환불 정책 요약</a>, <a href="/refund/">환불정책 전문</a></dd>
+            </div>
+            <div>
+              <dt>구매 방법</dt>
+              <dd>
+                로그인 뒤 티켓 구매 화면에서 구매합니다.
+                {loginUrl && <> <a href={loginUrl}>로그인하기</a></>}
+              </dd>
+            </div>
+          </dl>
+        </section>
+      ))}
+    </div>
+
+    <section class="doc" id="refund-summary" aria-labelledby="refund-h">
+      <h2 id="refund-h">환불 정책 요약 (두 상품 공통)</h2>
+      <ul>
+        <li>결제일부터 7일 안: 구매한 티켓을 하나도 쓰지 않았다면 결제 금액 전부를 돌려드립니다. 일부를 썼다면 쓰지 않은 티켓 1장마다 330원을 돌려드립니다.</li>
+        <li>7일이 지난 뒤: 결제일부터 1년(365일) 안에 신청하면 쓰지 않은 티켓 1장마다 330원을 돌려드립니다. 이 기한은 티켓 사용 기한과 같은 날 끝나며, 기한이 지나 사라진 티켓은 환불되지 않습니다.</li>
+        <li>이미 실행한 분석에 쓴 티켓은 청약철회(환불)를 할 수 없습니다. 분석은 실행하는 즉시 제공이 시작되는 디지털 서비스이기 때문입니다.</li>
+        <li>가늠 쪽 사정(오류, 시간 초과 등)으로 결과를 드리지 못한 분석의 티켓은 자동으로 돌려드립니다.</li>
+        <li>무료로 받은 티켓(가입, 이벤트)은 환불하지 않습니다.</li>
+        <li>신청: bara0228.dev@gmail.com 으로 계정 이메일, 결제일, 주문번호를 보내 주십시오. 신청을 받은 날부터 3영업일 안에 원래 결제 수단으로 취소합니다.</li>
+        <li>환불정책 전문: <a href="/refund/">https://data-ganeum.com/refund/</a></li>
+      </ul>
+    </section>
+
+    <section class="doc" id="seller" aria-labelledby="seller-h">
+      <h2 id="seller-h">판매자 정보</h2>
+      <ul>
+        <li>판매자(상호): 가늠</li>
+        <li>대표자: 설재민</li>
+        <li>사업자등록번호: 154-71-00762</li>
+        <li>통신판매업 신고: 면제(간이과세자)</li>
+        <li>사업장 주소: 경기도 군포시 송부로34번길 9-12</li>
+        <li>전화: 070-4519-8630</li>
+        <li>이메일: bara0228.dev@gmail.com</li>
+      </ul>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .pricing { max-width: 1040px; margin: 0 auto; padding: 64px 16px 80px; line-height: 1.8; }
+  @media (min-width: 720px) { .pricing { padding: 64px 48px 80px; } }
+  h1 { font-weight: 700; font-size: var(--fs-h1); margin: 4px 0 8px; letter-spacing: -0.025em; line-height: 1.18; }
+  .lede { color: var(--muted); font-size: var(--fs-lead); margin: 0 0 40px; max-width: 720px; }
+
+  .cards { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 880px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .card {
+    background: var(--surface); border: 1px solid var(--hair); border-top: 3px solid var(--rule);
+    border-radius: var(--r-card); padding: 24px; min-width: 0;
+  }
+  @media (min-width: 720px) { .card { padding: 32px; } }
+
+  .ticket { display: block; width: 100%; max-width: 280px; height: auto; margin: 0 0 20px; }
+  .t-back2 { fill: var(--surface); stroke: var(--hair); stroke-width: 1.5; }
+  .t-back { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+  .t-face { fill: var(--accent); }
+  .t-perf { stroke: var(--on-accent); stroke-width: 2; stroke-dasharray: 4 5; opacity: .6; }
+  .nw { white-space: nowrap; }
+  .t-label { fill: var(--on-accent); font-family: var(--sans); font-size: 18px; font-weight: 700; }
+  .t-count { fill: var(--on-accent); font-family: var(--sans); font-size: 56px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .t-unit { fill: var(--on-accent); font-family: var(--sans); font-size: 22px; font-weight: 600; }
+
+  .card h2 { font-size: var(--fs-h3); font-weight: 700; margin: 0 0 4px; line-height: 1.4; }
+  .price { margin: 0 0 20px; }
+  .price .amount { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .price .unit { color: var(--muted); font-size: var(--fs-small); }
+
+  dl { margin: 0; border-top: 1px solid var(--hair); }
+  dl > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  @media (min-width: 520px) { dl > div { grid-template-columns: 8.5em minmax(0, 1fr); gap: 16px; } }
+  dt { font-weight: 600; font-size: var(--fs-small); color: var(--muted); padding-top: 2px; }
+  dd { margin: 0; font-size: var(--fs-body); }
+  dd ul { margin: 6px 0 0; padding-left: 20px; }
+  dd li { margin-bottom: 2px; font-size: var(--fs-small); }
+  .card a, .doc a { color: var(--accent); text-underline-offset: 3px; }
+  .card a:hover, .doc a:hover { color: var(--accent-hover); }
+
+  .doc { max-width: 720px; margin-top: 56px; }
+  .doc h2 { font-size: var(--fs-h2); font-weight: 700; letter-spacing: -0.025em; line-height: 1.18; margin: 0 0 12px; }
+  .doc ul { padding-left: 22px; margin: 0; }
+  .doc li { margin-bottom: 6px; }
+</style>

@@ -61,7 +61,7 @@ print(f"카이제곱 {stat:.2f}, p = {p:.5f}")
 
 ## 배정이 틀어지는 원인
 
-<p>SRM은 통계 현상이 아니라 시스템 어딘가가 고장 났다는 결과입니다. 원인은 배정 단계와 기록 단계 둘 중 하나에 있습니다<sup class="fn"><a href="#ref-1" title="Fabijan et al. (2019). Diagnosing sample ratio mismatch in online controlled experiments. KDD '19, 2156–2164.">[1]</a></sup>.</p>
+<p>SRM은 통계 현상이 아니라 시스템 어딘가가 고장 났다는 결과입니다. 원인은 배정 단계와 기록 단계 둘 중 하나에 있습니다<sup class="fn"><a href="#ref-1" title="Fabijan et al. (2019). Diagnosing sample ratio mismatch in online controlled experiments. KDD '19, 2156-2164.">[1]</a></sup>.</p>
 <div class="table-scroll">
 <table>
 <thead><tr><th>단계</th><th>원인</th><th>어떻게 드러나나</th></tr></thead>
@@ -146,7 +146,7 @@ print(f"카이제곱 {stat:.2f}, p = {p:.5f}")
 ## 참고
 
 <ol>
-<li id="ref-1">Fabijan, A., Gupchup, J., Gupta, S., Omhover, J., Qin, W., Vermeer, L., &amp; Dmitriev, P. (2019). Diagnosing sample ratio mismatch in online controlled experiments: A taxonomy and rules of thumb for practitioners. <em>KDD ’19</em>, 2156–2164. https://doi.org/10.1145/3292500.3330722</li>
+<li id="ref-1">Fabijan, A., Gupchup, J., Gupta, S., Omhover, J., Qin, W., Vermeer, L., &amp; Dmitriev, P. (2019). Diagnosing sample ratio mismatch in online controlled experiments: A taxonomy and rules of thumb for practitioners. <em>KDD ’19</em>, 2156-2164. https://doi.org/10.1145/3292500.3330722</li>
 <li id="ref-2">Kohavi, R., Tang, D., &amp; Xu, Y. (2020). <em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>. Cambridge University Press.</li>
 </ol>
 <p class="refs">본문의 모든 수치는 설명을 위해 만든 가상 예시를 직접 계산한 값입니다. 인원의 표준편차는 이항분포 √(n × 0.5 × 0.5)로, SRM 검정은 카이제곱 적합도 검정(자유도 1)으로 구했습니다. 로그 유실 시뮬레이션은 그룹당 50,000명, 1만 회, 시드 2026 기준이며 전환율 비교는 두 비율 z검정(양측, α = 0.05)입니다. 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1입니다.</p>

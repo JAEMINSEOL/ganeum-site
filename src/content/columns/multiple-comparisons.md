@@ -112,7 +112,7 @@ for k in (1, 3, 5, 10, 20):
 <tbody>
 <tr><td>Bonferroni</td><td>0.05를 검정 수로 나눈다</td><td>각각 0.005</td><td>가장 단순하고 가장 보수적. 하나라도 가짜일 확률을 5%로 묶는다</td></tr>
 <tr><td>Holm</td><td>p값을 작은 순으로 세워 단계마다 기준을 완화한다</td><td>0.005, 0.0056, 0.00625 …</td><td>Bonferroni와 같은 보장, 조금 덜 보수적</td></tr>
-<tr><td>Benjamini-Hochberg</td><td>유의로 선언한 것 가운데 가짜 비율을 5%로 묶는다<sup class="fn"><a href="#ref-1" title="Benjamini & Hochberg (1995). Controlling the false discovery rate. JRSS B, 57(1), 289–300.">[1]</a></sup></td><td>가장 작은 p값부터 0.005, 0.010, 0.015 …</td><td>탐색 단계에 적합. 결론 하나를 지키는 용도는 아니다</td></tr>
+<tr><td>Benjamini-Hochberg</td><td>유의로 선언한 것 가운데 가짜 비율을 5%로 묶는다<sup class="fn"><a href="#ref-1" title="Benjamini & Hochberg (1995). Controlling the false discovery rate. JRSS B, 57(1), 289-300.">[1]</a></sup></td><td>가장 작은 p값부터 0.005, 0.010, 0.015 …</td><td>탐색 단계에 적합. 결론 하나를 지키는 용도는 아니다</td></tr>
 </tbody>
 </table>
 </div>
@@ -136,7 +136,7 @@ for k in (1, 3, 5, 10, 20):
 </table>
 </div>
 <p class="caption">그림 5. 사후에 발견한 세그먼트 효과를 다루는 절차.</p>
-<p>다섯 번째가 핵심입니다. 가설을 만든 데이터로 그 가설을 검증할 수는 없습니다. 이미 그 데이터에서 가장 극적인 칸을 골라냈기 때문입니다. 연구 분야에서는 이렇게 결과를 본 뒤 분석 방법을 고르는 일이 거짓 발견의 주된 통로로 지목되었습니다<sup class="fn"><a href="#ref-2" title="Simmons, Nelson & Simonsohn (2011). False-positive psychology. Psychological Science, 22(11), 1359–1366.">[2]</a></sup>. 온라인 실험에서도 같은 일이 세그먼트 탭 하나로 일어납니다<sup class="fn"><a href="#ref-3" title="Kohavi, Tang & Xu (2020). Trustworthy Online Controlled Experiments. Cambridge University Press.">[3]</a></sup>.</p>
+<p>다섯 번째가 핵심입니다. 가설을 만든 데이터로 그 가설을 검증할 수는 없습니다. 이미 그 데이터에서 가장 극적인 칸을 골라냈기 때문입니다. 연구 분야에서는 이렇게 결과를 본 뒤 분석 방법을 고르는 일이 거짓 발견의 주된 통로로 지목되었습니다<sup class="fn"><a href="#ref-2" title="Simmons, Nelson & Simonsohn (2011). False-positive psychology. Psychological Science, 22(11), 1359-1366.">[2]</a></sup>. 온라인 실험에서도 같은 일이 세그먼트 탭 하나로 일어납니다<sup class="fn"><a href="#ref-3" title="Kohavi, Tang & Xu (2020). Trustworthy Online Controlled Experiments. Cambridge University Press.">[3]</a></sup>.</p>
 <blockquote><p>사후에 찾은 세그먼트는 발견이 아니라 다음 실험의 가설이고, 가설은 새 데이터로만 확인됩니다.</p></blockquote>
 
 ## 나가며
@@ -150,8 +150,8 @@ for k in (1, 3, 5, 10, 20):
 ## 참고
 
 <ol>
-<li id="ref-1">Benjamini, Y., &amp; Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. <em>Journal of the Royal Statistical Society. Series B</em>, 57(1), 289–300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x</li>
-<li id="ref-2">Simmons, J. P., Nelson, L. D., &amp; Simonsohn, U. (2011). False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant. <em>Psychological Science</em>, 22(11), 1359–1366. https://doi.org/10.1177/0956797611417632</li>
+<li id="ref-1">Benjamini, Y., &amp; Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. <em>Journal of the Royal Statistical Society. Series B</em>, 57(1), 289-300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x</li>
+<li id="ref-2">Simmons, J. P., Nelson, L. D., &amp; Simonsohn, U. (2011). False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant. <em>Psychological Science</em>, 22(11), 1359-1366. https://doi.org/10.1177/0956797611417632</li>
 <li id="ref-3">Kohavi, R., Tang, D., &amp; Xu, Y. (2020). <em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>. Cambridge University Press.</li>
 </ol>
 <p class="refs">본문의 모든 수치는 설명을 위해 만든 가상 실험을 직접 시뮬레이션한 값입니다. 검정은 두 비율 z검정(양측, α = 0.05)이고, 지표 시뮬레이션은 그룹당 1만 명과 실험 1만 회(시드 2026), 세그먼트 시뮬레이션은 그룹당 2만 명을 20개 세그먼트에 나눈 뒤 실험 1만 회(시드 20261) 기준입니다. 지표들은 서로 독립으로 생성했으므로 실제 서비스보다 가짜 유의 확률이 다소 높게 나옵니다. 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1입니다.</p>

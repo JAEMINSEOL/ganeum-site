@@ -134,7 +134,7 @@ print(f"P(생존 | 첫 주문 500 이상)   = {survived[big].mean()*100:.1f}%   
 </tbody>
 </table>
 </div>
-<p class="caption">그림 5. <a class="term" href="#term-selection" data-tip="선택 편향(selection bias): 분모에 누가 들어가는지가 결과와 관련 있을 때 생기는 편향 전체. 생존자 편향은 그중 하나.">선택 편향</a>이 들어오는 자리와 확인하는 질문. 계량경제학에서는 이 문제를 표본 <a class="term" href="#term-selection" data-tip="선택 편향(selection bias): 분모에 누가 들어가는지가 결과와 관련 있을 때 생기는 편향 전체. 생존자 편향은 그중 하나.">선택 편향</a>으로 다룹니다<sup class="fn"><a href="#ref-2" title="Heckman (1979). Sample selection bias as a specification error. Econometrica, 47(1), 153–161.">[2]</a></sup>.</p>
+<p class="caption">그림 5. <a class="term" href="#term-selection" data-tip="선택 편향(selection bias): 분모에 누가 들어가는지가 결과와 관련 있을 때 생기는 편향 전체. 생존자 편향은 그중 하나.">선택 편향</a>이 들어오는 자리와 확인하는 질문. 계량경제학에서는 이 문제를 표본 <a class="term" href="#term-selection" data-tip="선택 편향(selection bias): 분모에 누가 들어가는지가 결과와 관련 있을 때 생기는 편향 전체. 생존자 편향은 그중 하나.">선택 편향</a>으로 다룹니다<sup class="fn"><a href="#ref-2" title="Heckman (1979). Sample selection bias as a specification error. Econometrica, 47(1), 153-161.">[2]</a></sup>.</p>
 <p>확인하는 질문은 결국 하나입니다. 이 숫자의 분모에서 누가 빠졌고, 빠진 사람은 남은 사람과 어떻게 다른가. 빠진 사람이 결과와 무관하게 빠졌다면 괜찮고, 결과 때문에 빠졌다면 그 숫자는 결과를 설명하지 못합니다.</p>
 <blockquote><p><strong>분모에서 빠진 사람이 결과 때문에 빠졌다면, 남은 사람의 숫자는 원인이 아니라 결과를 다시 쓴 것입니다.</strong></p></blockquote>
 
@@ -159,6 +159,6 @@ print(f"P(생존 | 첫 주문 500 이상)   = {survived[big].mean()*100:.1f}%   
 
 <ol>
 <li id="ref-1">Wald, A. (1943, 1980년 재발간). <em>A Method of Estimating Plane Vulnerability Based on Damage of Survivors</em>. Statistical Research Group, Columbia University; Center for Naval Analyses CRC 432.</li>
-<li id="ref-2">Heckman, J. J. (1979). Sample selection bias as a specification error. <em>Econometrica</em>, 47(1), 153–161. https://doi.org/10.2307/1912352</li>
+<li id="ref-2">Heckman, J. J. (1979). Sample selection bias as a specification error. <em>Econometrica</em>, 47(1), 153-161. https://doi.org/10.2307/1912352</li>
 </ol>
 <p class="refs">그림 1부터 4의 데이터는 Chen, D. (2012). Online Retail II [Dataset]. UCI Machine Learning Repository, https://doi.org/10.24432/C5CG6D (CC BY 4.0)이며, 고객 ID가 있고 수량과 단가가 양수인 거래 805,549건을 썼습니다. 첫 주문액은 첫 구매일 하루의 합계이고, 생존은 첫 구매 월로부터 12개월째 이후에 구매가 있는 것입니다. 첫 주문 500 이상이라는 기준은 설명을 위해 임의로 골랐습니다. 서두의 쿠폰 제안과 친구 초대 예시는 가상입니다. 고객 단위 원본은 싣지 않았습니다. 코드 실행 환경은 Python 3.12, pandas 3.0.6입니다.</p>
