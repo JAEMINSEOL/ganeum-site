@@ -141,7 +141,7 @@ img, svg { max-width: 100%; }
 /* header */
 .site-header { border-bottom: 1px solid var(--rule); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
-/* 워드마크 B2a (원점 관측점 포함): 데스크톱 높이 28px, 모바일 24px (22px 미만 금지), 여백은 높이의 1/2 이상.
+/* 워드마크 B2d (가늠 오른쪽 위 별표): 데스크톱 높이 28px, 모바일 24px (22px 미만 금지), 여백은 높이의 1/2 이상.
    밝은 테마 = on-light, 어두운 테마 = on-dark (prefers-color-scheme + data-theme 모두 따름) */
 .wordmark { display: inline-flex; align-items: center; flex: none; padding: 14px 0; text-decoration: none; }
 .wordmark-img { display: block; flex: none; width: auto; height: 28px; }
