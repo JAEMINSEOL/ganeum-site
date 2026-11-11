@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getColumns } from '../lib';
 
 // 검색엔진 제출용 사이트맵 (네이버 서치어드바이저·Google Search Console)
-const STATIC = ['/', '/columns/', '/about/', '/request/'];
+const STATIC = ['/', '/columns/', '/about/', '/request/', '/pricing/'];
 
 export const GET: APIRoute = async ({ site }) => {
   const base = site!.href.replace(/\/$/, '');
