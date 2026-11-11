@@ -141,19 +141,20 @@ img, svg { max-width: 100%; }
 /* header */
 .site-header { border-bottom: 1px solid var(--rule); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
-.wordmark { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-h2); font-weight: 800; letter-spacing: -0.02em; line-height: 1.6; text-decoration: none; }
-/* A3 심볼: 밝은 테마 = on-light, 어두운 테마 = on-dark (prefers-color-scheme + data-theme 모두 따름) */
-.brand-mark { display: block; flex: none; width: 32px; height: 32px; }
-.brand-mark--on-dark { display: none; }
+/* 워드마크 B2d (가늠 오른쪽 위 별표): 데스크톱 높이 28px, 모바일 24px (22px 미만 금지), 여백은 높이의 1/2 이상.
+   밝은 테마 = on-light, 어두운 테마 = on-dark (prefers-color-scheme + data-theme 모두 따름) */
+.wordmark { display: inline-flex; align-items: center; flex: none; padding: 14px 0; text-decoration: none; }
+.wordmark-img { display: block; flex: none; width: auto; height: 28px; }
+.wordmark-img--on-dark { display: none; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .brand-mark--on-light { display: none; }
-  :root:not([data-theme="light"]) .brand-mark--on-dark { display: block; }
+  :root:not([data-theme="light"]) .wordmark-img--on-light { display: none; }
+  :root:not([data-theme="light"]) .wordmark-img--on-dark { display: block; }
 }
-:root[data-theme="dark"] .brand-mark--on-light { display: none; }
-:root[data-theme="dark"] .brand-mark--on-dark { display: block; }
+:root[data-theme="dark"] .wordmark-img--on-light { display: none; }
+:root[data-theme="dark"] .wordmark-img--on-dark { display: block; }
 @media (max-width: 480px) {
-  .wordmark { gap: 7px; }
-  .brand-mark { width: 28px; height: 28px; }
+  .wordmark { padding: 12px 0; }
+  .wordmark-img { height: 24px; }
 }
 .nav { display: flex; align-items: center; gap: 28px; font-size: var(--fs-body); }
 .nav a { text-decoration: none; color: var(--muted); }
