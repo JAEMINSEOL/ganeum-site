@@ -8,9 +8,9 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title, description = '데이터를 가늠하는 분석 칼럼. 숫자를 제대로 읽는 법을 씁니다. 분석 의뢰는 상담·견적 무료, 1만 원부터.' } = Astro.props;
+const { title, description = '데이터를 가늠하는 분석 칼럼. 숫자를 제대로 읽는 법을 씁니다. 분석 의뢰는 상담과 견적 무료, 1만 원부터.' } = Astro.props;
 const ogImage = new URL('/og.png', Astro.site);
-const fullTitle = title ? `${title} — 가늠` : SITE_TITLE;
+const fullTitle = title ? `${title} | 가늠` : SITE_TITLE;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -30,7 +30,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="가늠 — 숫자를 제대로 가늠하는 법. 데이터 분석 칼럼·분석 의뢰, 상담·견적 무료" />
+    <meta property="og:image:alt" content="가늠: 숫자를 제대로 가늠하는 법. 데이터 분석 칼럼과 분석 의뢰, 상담과 견적 무료" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
@@ -59,7 +59,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </main>
     <footer class="site-footer">
       <div class="wrap">
-        <span>© {new Date().getFullYear()} 가늠 · data-ganeum.com</span>
+        <span>© {new Date().getFullYear()} 가늠, data-ganeum.com</span>
         <address class="biz">
           <span>상호 가늠</span><span>대표자 설재민</span><span>사업자등록번호 154-71-00762</span>
           <span>사업장 주소 경기도 군포시 송부로34번길 9-12</span><span>전화 070-4519-8630</span><span>문의 bara0228.dev@gmail.com</span>
@@ -70,6 +70,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
           <a href="/terms/">이용약관</a>
           <a href="/privacy/"><strong>개인정보처리방침</strong></a>
           <a href="/refund/">환불정책</a>
+          <a href="/pricing/">티켓 상품 안내</a>
         </nav>
       </div>
     </footer>

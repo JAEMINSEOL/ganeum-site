@@ -155,7 +155,7 @@ print(f"B를 택했을 때 기대 손실   : {np.maximum(a - b, 0).mean()*100:.3
 <p class="caption">그림 6. 세 가지 결정 규칙. 어느 것을 쓰든 결과를 보기 전에 정해야 합니다.</p>
 <p>세 규칙 모두 쓸 수 있고, 같은 데이터에서 결론이 갈릴 수도 있습니다. 문제는 규칙이 아니라 순서입니다. 결과를 보고 나서 유리한 규칙을 고르면 어떤 규칙도 의미가 없습니다.</p>
 <p>또 하나, 베이지안 방법은 결과를 매일 들여다봐도 괜찮다는 말이 있는데 조건이 붙습니다. 사전분포가 실제 효과 분포를 잘 반영할 때만 그렇고, 평평한 사전분포로 매일 확인하며 멈추면 p값과 같은 문제가 생깁니다<sup class="fn"><a href="#ref-2" title="Deng, Lu & Chen (2016). Continuous monitoring of A/B tests without pain: Optional stopping in Bayesian testing. IEEE DSAA.">[2]</a></sup>.</p>
-<p>방향 확률과 사후분포가 주는 진짜 이점은 따로 있습니다. 효과의 크기와 불확실성을 한 분포로 보여 주고, 기대 손실처럼 결정에 바로 쓰이는 양을 계산할 수 있다는 점입니다<sup class="fn"><a href="#ref-1" title="Kruschke (2013). Bayesian estimation supersedes the t test. Journal of Experimental Psychology: General, 142(2), 573–603.">[1]</a></sup>. 95.6%라는 숫자 하나로 줄이면 그 이점이 사라집니다.</p>
+<p>방향 확률과 사후분포가 주는 진짜 이점은 따로 있습니다. 효과의 크기와 불확실성을 한 분포로 보여 주고, 기대 손실처럼 결정에 바로 쓰이는 양을 계산할 수 있다는 점입니다<sup class="fn"><a href="#ref-1" title="Kruschke (2013). Bayesian estimation supersedes the t test. Journal of Experimental Psychology: General, 142(2), 573-603.">[1]</a></sup>. 95.6%라는 숫자 하나로 줄이면 그 이점이 사라집니다.</p>
 <blockquote><p>결정 규칙은 p값이든 방향 확률이든 기대 손실이든 쓸 수 있지만, 셋 다 결과를 보기 전에 정했을 때만 규칙입니다.</p></blockquote>
 
 ## 나가며
@@ -169,7 +169,7 @@ print(f"B를 택했을 때 기대 손실   : {np.maximum(a - b, 0).mean()*100:.3
 ## 참고
 
 <ol>
-<li id="ref-1">Kruschke, J. K. (2013). Bayesian estimation supersedes the t test. <em>Journal of Experimental Psychology: General</em>, 142(2), 573–603. https://doi.org/10.1037/a0029146</li>
-<li id="ref-2">Deng, A., Lu, J., &amp; Chen, S. (2016). Continuous monitoring of A/B tests without pain: Optional stopping in Bayesian testing. <em>2016 IEEE International Conference on Data Science and Advanced Analytics (DSAA)</em>, 243–252. https://doi.org/10.1109/DSAA.2016.33</li>
+<li id="ref-1">Kruschke, J. K. (2013). Bayesian estimation supersedes the t test. <em>Journal of Experimental Psychology: General</em>, 142(2), 573-603. https://doi.org/10.1037/a0029146</li>
+<li id="ref-2">Deng, A., Lu, J., &amp; Chen, S. (2016). Continuous monitoring of A/B tests without pain: Optional stopping in Bayesian testing. <em>2016 IEEE International Conference on Data Science and Advanced Analytics (DSAA)</em>, 243-252. https://doi.org/10.1109/DSAA.2016.33</li>
 </ol>
 <p class="refs">본문의 모든 수치는 설명을 위해 만든 가상 예시를 직접 계산한 값입니다. 데이터는 첫 칼럼과 같은 각 그룹 1,000명, 전환 50명과 68명입니다. 방향 확률과 기대 손실은 베타 사후분포에서 20만 번 표본을 뽑아 구했고(시드 2026), p값은 두 비율 z검정으로 계산했습니다. 사전분포 표의 네 줄은 A안과 B안에 같은 사전분포를 적용한 결과입니다. 그림 5의 실제 데이터는 Kaggle의 Marketing A/B Testing(faviovaz, CC0 Public Domain, https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing)이며, 부분표본은 두 그룹에서 각 2,000명을 무작위로 뽑았습니다(시드 7). 사전분포의 중심 2.5%는 전체 588,101명의 합동 전환율 2.524%입니다. 유저 단위 원본은 싣지 않았습니다. 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1입니다.</p>

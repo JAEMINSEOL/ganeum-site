@@ -38,12 +38,12 @@ const products = [
 const deliveryUrl = 'https://data-ganeum.com';
 const deliveryRest = '결제가 끝나면 티켓이 바로 계정에 들어옵니다. 배송은 없습니다.';
 const period = '결제일부터 365일(1년) 동안 사용할 수 있습니다.';
-const cardRefund = '쓰지 않은 티켓은 결제일부터 7일 안 전액, 그 뒤 결제일부터 365일 안에는 1장당 330원 환불';
+const cardRefund = '쓰지 않은 티켓은 결제일부터 7일 안 전액, 그 뒤 결제일부터 365일 안에 신청하면 1장당 330원 환불';
 ---
 <Base title={PAGE_TITLES.pricing} description="가늠 분석 티켓 3장(990원)과 30장(9,900원)의 구성, 제공 방식, 서비스 제공 기간(결제일부터 1년), 환불 정책, 판매자 정보를 안내합니다.">
   <article class="pricing">
     <h1>티켓 상품 안내</h1>
-    <p class="lede">가늠 AI 데이터 분석에 쓰는 티켓입니다. 한 번만 결제하는 상품이며 정기결제는 없습니다.</p>
+    <p class="lede">가늠 AI 데이터 분석에 쓰는 티켓입니다. 구매할 때마다 한 번 결제하며, 정기결제나 자동 갱신은 없습니다.</p>
 
     <div class="cards">
       {products.map((p) => (
@@ -109,7 +109,7 @@ const cardRefund = '쓰지 않은 티켓은 결제일부터 7일 안 전액, 그
         <li>판매자(상호): 가늠</li>
         <li>대표자: 설재민</li>
         <li>사업자등록번호: 154-71-00762</li>
-        <li>통신판매업 신고: 간이과세자 신고 면제</li>
+        <li>통신판매업 신고: 면제(간이과세자)</li>
         <li>사업장 주소: 경기도 군포시 송부로34번길 9-12</li>
         <li>전화: 070-4519-8630</li>
         <li>이메일: bara0228.dev@gmail.com</li>

@@ -63,7 +63,7 @@ print(f"매일 확인하고 유의하면 중단 : {(p < 0.05).any(axis=1).mean()
 <text x="310" y="210" font-size="13">2주 동안 결과를 확인한 횟수</text>
 </g>
 </svg>
-<figcaption>그림 1. A와 B가 똑같은 실험 2만 번에서, 한 번이라도 p &lt; 0.05가 떠서 “승리”로 판정된 비율. 확인한 날은 2회 7·14일, 3회 5·9·14일, 5회 3·6·8·11·14일, 7회 격일, 14회 매일입니다. 설명을 위해 만든 가상 실험입니다.</figcaption>
+<figcaption>그림 1. A와 B가 똑같은 실험 2만 번에서, 한 번이라도 p &lt; 0.05가 떠서 “승리”로 판정된 비율. 확인한 날은 2회(7, 14일), 3회(5, 9, 14일), 5회(3, 6, 8, 11, 14일), 7회(격일), 14회(매일)입니다. 설명을 위해 만든 가상 실험입니다.</figcaption>
 </figure>
 <blockquote><p>같은 실험 기간을 여러 번 나누어 들여다볼수록, 아무 차이 없는 실험이 승리로 판정될 확률은 설계한 5%에서 점점 멀어집니다.</p></blockquote>
 
@@ -181,8 +181,8 @@ print(f"매일 확인하고 유의하면 중단 : {(p < 0.05).any(axis=1).mean()
 ## 참고
 
 <ol>
-<li>Armitage, P., McPherson, C. K., &amp; Rowe, B. C. (1969). Repeated significance tests on accumulating data. <em>Journal of the Royal Statistical Society. Series A</em>, 132(2), 235–244. https://doi.org/10.2307/2343787</li>
-<li>O’Brien, P. C., &amp; Fleming, T. R. (1979). A multiple testing procedure for clinical trials. <em>Biometrics</em>, 35(3), 549–556. https://doi.org/10.2307/2530245</li>
-<li>Johari, R., Koomen, P., Pekelis, L., &amp; Walsh, D. (2017). Peeking at A/B tests: Why it matters, and what to do about it. <em>KDD ’17</em>, 1517–1525. https://doi.org/10.1145/3097983.3097992</li>
+<li>Armitage, P., McPherson, C. K., &amp; Rowe, B. C. (1969). Repeated significance tests on accumulating data. <em>Journal of the Royal Statistical Society. Series A</em>, 132(2), 235-244. https://doi.org/10.2307/2343787</li>
+<li>O’Brien, P. C., &amp; Fleming, T. R. (1979). A multiple testing procedure for clinical trials. <em>Biometrics</em>, 35(3), 549-556. https://doi.org/10.2307/2530245</li>
+<li>Johari, R., Koomen, P., Pekelis, L., &amp; Walsh, D. (2017). Peeking at A/B tests: Why it matters, and what to do about it. <em>KDD ’17</em>, 1517-1525. https://doi.org/10.1145/3097983.3097992</li>
 </ol>
 <p class="refs">본문의 모든 수치는 설명을 위해 만든 가상 실험을 직접 시뮬레이션한 값입니다. 검정은 두 비율 z검정(양측, α = 0.05)이고, 실험 2만 회를 반복했고 시드는 2026입니다. 그림 2의 궤적은 같은 시뮬레이션에서 뽑은 다섯 건입니다. 그림 4의 경계는 O’Brien-Fleming 방식(k번째 확인의 임계값 z = c × √(K/k), K = 5)으로, 다섯 번 확인한 전체 1종 오류가 5%가 되도록 정한 상수 c ≈ 2.040을 썼습니다(시뮬레이션 100만 회로 확인). 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1입니다.</p>

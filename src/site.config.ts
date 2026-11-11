@@ -15,11 +15,12 @@ export const GOATCOUNTER_CODE = '';
 export const APP_URL = 'https://ganeum-web-586607323563.asia-northeast3.run.app';
 
 // 검색 결과·브라우저 탭·공유 카드에 보이는 제목 (2026-11-01 사용자 결정 — 안 E)
-// SITE_TITLE: 홈 제목. PAGE_TITLES: 페이지별 제목(앞부분). 각 칼럼 글은 "칼럼 제목 — 가늠" 으로 자동.
+// SITE_TITLE: 홈 제목. PAGE_TITLES: 페이지별 제목(앞부분). 각 칼럼 글은 "칼럼 제목 | 가늠" 으로 자동.
+// 2026-11-11 운영자 규칙: 보이는 글자에 가운데점, 줄표를 쓰지 않는다(제목 구분은 " | ").
 // 검색 결과에는 앞쪽 약 30자만 보이므로 핵심어를 앞에 둔다.
-export const SITE_TITLE = '가늠 — AI 데이터 분석·소규모 데이터 분석 의뢰';
+export const SITE_TITLE = '가늠 | AI 데이터 분석, 소규모 데이터 분석 의뢰';
 export const PAGE_TITLES = {
-  request: '데이터 분석 의뢰 · 상담·견적 무료',
+  request: '데이터 분석 의뢰, 상담과 견적 무료',
   columns: '데이터 분석 칼럼',
   refund: '환불정책',
   pricing: '티켓 상품 안내',

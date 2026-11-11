@@ -124,7 +124,7 @@ for name, p in (("공유 대조군", p_shared), ("독립 대조군", p_indep)):
 
 ## 대조군은 더 크게 잡습니다
 
-<p>대조군이 11번 비교에 쓰이는데 크기는 실험군 하나와 같다면, 대조군의 <a class="term" href="#term-fluctuation" data-tip="변동(표집 변동): 같은 조건에서 실험을 반복해도 표본마다 우연히 달라지는 값의 흔들림. 영어로 fluctuation, sampling variation.">변동</a>이 11개 비교 전부에 같은 크기로 들어갑니다. 대조군을 키우면 그 <a class="term" href="#term-fluctuation" data-tip="변동(표집 변동): 같은 조건에서 실험을 반복해도 표본마다 우연히 달라지는 값의 흔들림. 영어로 fluctuation, sampling variation.">변동</a>이 줄어들고, 같은 총 인원으로 검출력이 올라갑니다. 실험군이 k개일 때 대조군을 실험군의 √k배로 두는 것이 알려진 배분입니다<sup class="fn"><a href="#ref-1" title="Dunnett (1955). A multiple comparison procedure for comparing several treatments with a control. JASA, 50(272), 1096–1121.">[1]</a></sup>.</p>
+<p>대조군이 11번 비교에 쓰이는데 크기는 실험군 하나와 같다면, 대조군의 <a class="term" href="#term-fluctuation" data-tip="변동(표집 변동): 같은 조건에서 실험을 반복해도 표본마다 우연히 달라지는 값의 흔들림. 영어로 fluctuation, sampling variation.">변동</a>이 11개 비교 전부에 같은 크기로 들어갑니다. 대조군을 키우면 그 <a class="term" href="#term-fluctuation" data-tip="변동(표집 변동): 같은 조건에서 실험을 반복해도 표본마다 우연히 달라지는 값의 흔들림. 영어로 fluctuation, sampling variation.">변동</a>이 줄어들고, 같은 총 인원으로 검출력이 올라갑니다. 실험군이 k개일 때 대조군을 실험군의 √k배로 두는 것이 알려진 배분입니다<sup class="fn"><a href="#ref-1" title="Dunnett (1955). A multiple comparison procedure for comparing several treatments with a control. JASA, 50(272), 1096-1121.">[1]</a></sup>.</p>
 <div class="table-scroll">
 <table>
 <thead><tr><th>배분 (총 120,000명, 실험군 11개)</th><th>대조군</th><th>실험군당</th><th>+10% 효과의 검출력</th></tr></thead>
@@ -175,7 +175,7 @@ for name, p in (("공유 대조군", p_shared), ("독립 대조군", p_indep)):
 ## 참고
 
 <ol>
-<li id="ref-1">Dunnett, C. W. (1955). A multiple comparison procedure for comparing several treatments with a control. <em>Journal of the American Statistical Association</em>, 50(272), 1096–1121. https://doi.org/10.1080/01621459.1955.10501294</li>
+<li id="ref-1">Dunnett, C. W. (1955). A multiple comparison procedure for comparing several treatments with a control. <em>Journal of the American Statistical Association</em>, 50(272), 1096-1121. https://doi.org/10.1080/01621459.1955.10501294</li>
 <li id="ref-2">Kohavi, R., Tang, D., &amp; Xu, Y. (2020). <em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>. Cambridge University Press.</li>
 </ol>
 <p class="refs">본문의 모든 수치는 설명을 위해 만든 가상 실험을 직접 시뮬레이션한 값입니다. 검정은 두 비율 z검정(양측, α = 0.05)이고, 실험 1만 회, 시드 2026 기준입니다. 실험군 간 비교는 해당 실험군을 나머지 10개 실험군을 합친 집단과 두 비율 z검정으로 비교했습니다. 검출력은 정규 근사로 계산했습니다. 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1입니다.</p>

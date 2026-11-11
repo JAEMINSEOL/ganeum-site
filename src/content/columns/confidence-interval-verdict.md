@@ -108,7 +108,7 @@ draft: false
 </div>
 <p class="caption">그림 4. 무시 가능한 차이의 선을 정하는 방법.</p>
 <p>중요한 것은 <strong>결과를 보기 전에 정하는 것</strong>입니다. 결과를 본 뒤에 선을 옮기면, 원하는 결론에 맞춰 기준을 조정하는 일이 됩니다. 실험 설계서에 목표 효과를 적을 때 이 선도 같이 적어 두면 됩니다. 두 숫자는 보통 짝으로 움직입니다. 잡고 싶은 최소 차이가 상대 +20%라면, 무시 가능한 선은 그보다 훨씬 작은 상대 ±5% 근처에서 정해집니다.</p>
-<p>이 선을 놓고 구간을 비교하는 절차는 동등성 검정이라는 이름으로 정리되어 있습니다<sup class="fn"><a href="#ref-2" title="Lakens, Scheel & Isager (2018). Equivalence testing for psychological research: A tutorial. AMPPS, 1(2), 259–269.">[2]</a></sup>. 도구를 따로 쓰지 않더라도, 신뢰구간과 선을 겹쳐 보는 것만으로 대부분의 판단은 끝납니다.</p>
+<p>이 선을 놓고 구간을 비교하는 절차는 동등성 검정이라는 이름으로 정리되어 있습니다<sup class="fn"><a href="#ref-2" title="Lakens, Scheel & Isager (2018). Equivalence testing for psychological research: A tutorial. AMPPS, 1(2), 259-269.">[2]</a></sup>. 도구를 따로 쓰지 않더라도, 신뢰구간과 선을 겹쳐 보는 것만으로 대부분의 판단은 끝납니다.</p>
 <blockquote><p>차이가 없다고 말하려면, 없다고 볼 기준을 먼저 정해야 합니다.</p></blockquote>
 
 ## 결론 문장 쓰기
@@ -143,7 +143,7 @@ draft: false
 </table>
 </div>
 <p class="caption">그림 6. 신뢰구간을 읽을 때 자주 나오는 오해.</p>
-<p>마지막 줄은 특히 데이터가 많은 팀에서 자주 걸립니다. 모수가 크면 구간은 저절로 좁아집니다. 좁은 구간은 믿을 만해 보이지만, 그룹 배정이나 로그 수집에 문제가 있었다면 그 문제까지 정밀하게 재어 보여 줄 뿐입니다<sup class="fn"><a href="#ref-1" title="Amrhein, Greenland & McShane (2019). Scientists rise up against statistical significance. Nature, 567, 305–307.">[1]</a></sup>.</p>
+<p>마지막 줄은 특히 데이터가 많은 팀에서 자주 걸립니다. 모수가 크면 구간은 저절로 좁아집니다. 좁은 구간은 믿을 만해 보이지만, 그룹 배정이나 로그 수집에 문제가 있었다면 그 문제까지 정밀하게 재어 보여 줄 뿐입니다<sup class="fn"><a href="#ref-1" title="Amrhein, Greenland & McShane (2019). Scientists rise up against statistical significance. Nature, 567, 305-307.">[1]</a></sup>.</p>
 <blockquote><p>구간의 폭은 정밀도를 말할 뿐, 측정이 옳았는지는 말해 주지 않습니다.</p></blockquote>
 
 ## 나가며
@@ -157,7 +157,7 @@ draft: false
 ## 참고
 
 <ol>
-<li id="ref-1">Amrhein, V., Greenland, S., &amp; McShane, B. (2019). Scientists rise up against statistical significance. <em>Nature</em>, 567, 305–307. https://doi.org/10.1038/d41586-019-00857-9</li>
-<li id="ref-2">Lakens, D., Scheel, A. M., &amp; Isager, P. M. (2018). Equivalence testing for psychological research: A tutorial. <em>Advances in Methods and Practices in Psychological Science</em>, 1(2), 259–269. https://doi.org/10.1177/2515245918770963</li>
+<li id="ref-1">Amrhein, V., Greenland, S., &amp; McShane, B. (2019). Scientists rise up against statistical significance. <em>Nature</em>, 567, 305-307. https://doi.org/10.1038/d41586-019-00857-9</li>
+<li id="ref-2">Lakens, D., Scheel, A. M., &amp; Isager, P. M. (2018). Equivalence testing for psychological research: A tutorial. <em>Advances in Methods and Practices in Psychological Science</em>, 1(2), 259-269. https://doi.org/10.1177/2515245918770963</li>
 </ol>
 <p class="refs">본문의 모든 수치는 설명을 위해 만든 가상 실험을 직접 계산한 값입니다. 차이의 신뢰구간은 두 비율의 표준오차를 합쳐 구했고(양측, α = 0.05), p값은 합동분산을 쓰는 두 비율 z검정으로 계산했습니다. 무시 가능한 차이의 선 ±0.25%p는 기저 전환율 5%의 상대 ±5%로 잡은 가정값입니다. 사례 D의 추가 인원은 관측된 차이가 아니라 상대 +20%(5.0% → 6.0%)를 검출력 80%로 잡는 필요 인원 8,158명에서 현재 2,000명을 뺀 값입니다. 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1입니다.</p>

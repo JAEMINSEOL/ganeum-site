@@ -140,7 +140,7 @@ print(f"θ = {theta:.3f}, 상관 ρ = {np.corrcoef(x, y)[0, 1]:.3f}, 분산 비 
 </table>
 </div>
 <p class="caption">그림 5. CUPED를 쓰는 실험의 설계서 추가 항목.</p>
-<p>마지막 줄이 중요합니다. 조정 전과 후의 차이가 크게 다르면, 그것은 CUPED가 잘못된 것이 아니라 두 그룹의 실험 전 값이 우연히 달랐다는 뜻입니다. 조정 후 값이 그 우연을 걷어낸 값이고, 두 숫자를 같이 적어야 읽는 사람이 그 사실을 알 수 있습니다<sup class="fn"><a href="#ref-1" title="Deng, Xu, Kohavi & Walker (2013). Improving the sensitivity of online controlled experiments by utilizing pre-experiment data. WSDM '13, 123–132.">[1]</a></sup>.</p>
+<p>마지막 줄이 중요합니다. 조정 전과 후의 차이가 크게 다르면, 그것은 CUPED가 잘못된 것이 아니라 두 그룹의 실험 전 값이 우연히 달랐다는 뜻입니다. 조정 후 값이 그 우연을 걷어낸 값이고, 두 숫자를 같이 적어야 읽는 사람이 그 사실을 알 수 있습니다<sup class="fn"><a href="#ref-1" title="Deng, Xu, Kohavi & Walker (2013). Improving the sensitivity of online controlled experiments by utilizing pre-experiment data. WSDM '13, 123-132.">[1]</a></sup>.</p>
 <blockquote><p><strong>CUPED를 쓰는 실험은 <a class="term" href="#term-covariate" data-tip="공변량(covariate): 실험 결과를 설명하는 보조 변수. CUPED에서는 실험 시작 전에 측정한 같은 지표.">공변량</a>과 예상 상관을 설계서에 먼저 적고, 결과에는 조정 전과 후를 나란히 적습니다.</strong></p></blockquote>
 
 ## 나가며
@@ -163,7 +163,7 @@ print(f"θ = {theta:.3f}, 상관 ρ = {np.corrcoef(x, y)[0, 1]:.3f}, 분산 비 
 ## 참고
 
 <ol>
-<li id="ref-1">Deng, A., Xu, Y., Kohavi, R., &amp; Walker, T. (2013). Improving the sensitivity of online controlled experiments by utilizing pre-experiment data. <em>Proceedings of the Sixth ACM International Conference on Web Search and Data Mining (WSDM ’13)</em>, 123–132. https://doi.org/10.1145/2433396.2433413</li>
+<li id="ref-1">Deng, A., Xu, Y., Kohavi, R., &amp; Walker, T. (2013). Improving the sensitivity of online controlled experiments by utilizing pre-experiment data. <em>Proceedings of the Sixth ACM International Conference on Web Search and Data Mining (WSDM ’13)</em>, 123-132. https://doi.org/10.1145/2433396.2433413</li>
 <li id="ref-2">Kohavi, R., Tang, D., &amp; Xu, Y. (2020). <em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>. Cambridge University Press.</li>
 </ol>
 <p class="refs">그림 1과 그림 3의 곡선은 공식 1 − ρ²입니다. 그림 2의 데이터는 Chen, D. (2012). Online Retail II [Dataset]. UCI Machine Learning Repository, https://doi.org/10.24432/C5CG6D (CC BY 4.0)이며, 고객 ID가 있고 수량과 단가가 양수인 거래 805,549건에서 금액을 수량 × 단가로 계산했습니다. 실험 전 기간은 2010-12-01부터 2011-05-31, 실험 기간은 2011-06-01부터 2011-08-31이고, 실험 전 기간에 구매한 고객 2,708명이 모집단입니다. 실제 실험은 없었으므로 무작위 50:50 배정을 1만 회 반복했고(시드 2026, 코드 블록은 시드 7의 한 번), 효과는 B안 구매액에 비율을 곱해 넣었습니다. 검정은 두 평균의 z검정(양측, α = 0.05)입니다. 고객 단위 원본은 싣지 않았습니다. 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1, pandas 3.0.6입니다.</p>

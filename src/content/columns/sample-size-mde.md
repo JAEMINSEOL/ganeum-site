@@ -206,6 +206,6 @@ for rel in (0.05, 0.10, 0.20, 0.50):
 
 <ol>
 <li>Cohen, J. (1988). <em>Statistical Power Analysis for the Behavioral Sciences</em> (2nd ed.). Lawrence Erlbaum Associates.</li>
-<li>Gelman, A., &amp; Carlin, J. (2014). Beyond power calculations: Assessing Type S (sign) and Type M (magnitude) errors. <em>Perspectives on Psychological Science</em>, 9(6), 641–651. https://doi.org/10.1177/1745691614551642</li>
+<li>Gelman, A., &amp; Carlin, J. (2014). Beyond power calculations: Assessing Type S (sign) and Type M (magnitude) errors. <em>Perspectives on Psychological Science</em>, 9(6), 641-651. https://doi.org/10.1177/1745691614551642</li>
 </ol>
 <p class="refs">본문의 모든 수치는 설명을 위해 만든 가상 실험을 직접 계산하고 시뮬레이션한 값입니다. 필요 인원은 두 비율 비교의 합동분산 공식 n = (z<sub>α/2</sub>√(2p̄(1−p̄)) + z<sub>β</sub>√(p₁(1−p₁)+p₂(1−p₂)))² / (p₂−p₁)² 으로 계산했고, 유의수준 0.05 양측과 검출력 80%를 썼습니다. MDE는 같은 식을 이분법으로 역산한 값입니다. 그림 5와 그림 6의 시뮬레이션은 조건당 4만 회, 시드 2026 기준입니다. 소수점 자리에서 반올림했으므로 계산기마다 한두 명 차이가 날 수 있습니다. 코드 실행 환경은 Python 3.12, NumPy 2.5.3, SciPy 1.18.1입니다.</p>
