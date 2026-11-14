@@ -17,6 +17,8 @@ draft: false
 
 <p>UCI에 CC BY 4.0으로 공개된 영국 온라인 소매점 데이터에서 2010년 1월부터 3월 사이에 첫 구매를 한 고객 1,200명을 <a class="term" href="#term-cohort" data-tip="코호트(cohort): 같은 기준일에 시작한 사람들의 묶음. 떠난 사람도 코호트에 남아 있어야 분모가 유지된다.">코호트</a>로 잡겠습니다. 12개월 뒤에도 구매한 고객을 살아남은 고객으로 보면 746명, 62.2%입니다. 이들의 첫 주문액 중앙값은 328이고, 떠난 고객은 250입니다. 여기까지는 서두의 보고서와 같습니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import pandas as pd
 
@@ -38,6 +40,8 @@ print(f"P(생존 | 첫 주문 500 이상)   = {survived[big].mean()*100:.1f}%   
 # P(첫 주문 500 이상 | 생존)   = 26.7%   P(첫 주문 500 이상 | 탈락) = 16.3%
 # P(생존 | 첫 주문 500 이상)   = 72.9%   P(생존 | 첫 주문 500 미만) = 59.0%
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>

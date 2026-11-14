@@ -40,6 +40,8 @@ draft: false
 <p>Y<sub>조정</sub> = Y − θ(X − X̄), 여기서 θ = cov(X, Y) / var(X)</p>
 <p>θ는 X로 Y를 설명하는 <span class="term" data-tip="X가 1 늘 때 Y가 평균적으로 얼마나 느는지를 나타내는 값. 여기서는 실험 전 구매액 1원당 실험 중 구매액이 늘어나는 정도." tabindex="0">회귀 기울기</span>이고, A안과 B안을 합친 전체에서 한 번 구합니다. 조정값의 평균은 원래 Y의 평균과 같고(X − X̄의 평균이 0이므로) 분산만 줄어듭니다. 그다음은 평소처럼 두 그룹의 조정값 평균을 비교하면 됩니다. 실제 데이터로 돌리면 이렇습니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import numpy as np, pandas as pd
 
@@ -60,6 +62,8 @@ print(f"θ = {theta:.3f}, 상관 ρ = {np.corrcoef(x, y)[0, 1]:.3f}, 분산 비 
 # CUPED 조정 후: 표준편차 1,604, B−A 차이 -3.8, 표준오차 61.6
 # θ = 0.499, 상관 ρ = 0.812, 분산 비 = 0.341
 ```
+
+</details>
 
 <blockquote><p><strong>CUPED는 회귀 기울기 하나를 구해 실험 지표에서 실험 전 값의 몫을 빼는 계산이고, 비교 방법은 바뀌지 않습니다.</strong></p></blockquote>
 

@@ -34,6 +34,8 @@ draft: false
 
 <p>UCI에 CC BY 4.0으로 공개된 영국 온라인 소매점 데이터에서 2010년 9월부터 11월까지를 전, 2011년 같은 석 달을 후로 잡습니다. 같은 계절을 비교해 계절 효과를 피했습니다. 총 매출은 3,040,631에서 3,153,975로 3.7% 올랐습니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import pandas as pd
 
@@ -63,6 +65,8 @@ for name, v1, v2 in (("총 매출", a["spend"], b["spend"]),
 # 활성일당          541.1 →        554.3  (+2.4%)
 # 같은 고객만      1,467.2 →      1,442.1  (-1.7%)
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>

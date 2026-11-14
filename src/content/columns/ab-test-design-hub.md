@@ -51,6 +51,8 @@ draft: false
 </div>
 <p class="caption">그림 2. 대조군 D7 리텐션 20%, 양측 유의수준 5%, <a class="term" href="#term-power" data-tip="검정력(statistical power): 실제로 목표 효과만큼의 차이가 있을 때 검정이 그 차이를 유의하게 잡아낼 확률. 보통 80%.">검정력</a> 80%일 때 그룹당 필요 인원. 두 비율 z검정 공식으로 계산했습니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 from scipy.stats import norm
 import math
@@ -70,6 +72,8 @@ for mde in (0.005, 0.01, 0.02, 0.03):
 # MDE +2%p: 그룹당 6,510명, 하루 300명 설치(그룹당 150명)면 44일
 # MDE +3%p: 그룹당 2,943명, 하루 300명 설치(그룹당 150명)면 20일
 ```
+
+</details>
 
 <p>필요 인원을 채울 수 없을 때 할 수 있는 일은 세 가지입니다.</p>
 <p>첫째, 잡으려는 효과를 키워 적습니다. 하루 300명인 앱이 두 달 안에 끝내야 한다면 +2%p보다 작은 효과는 이 실험으로 못 잡는다고 설계서에 씁니다.</p>

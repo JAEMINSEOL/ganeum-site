@@ -35,6 +35,8 @@ draft: false
 
 <p>관측 인원이 설계 비율과 맞는지는 카이제곱 적합도 검정으로 봅니다. 이 검정에서 p값이 작으면 배정이 설계와 다르다는 뜻이고, 이 현상을 SRM(sample ratio mismatch, 표본 비율 불일치)이라고 부릅니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 from scipy.stats import chisquare
 
@@ -43,6 +45,8 @@ stat, p = chisquare(observed)        # 기대값은 50:50
 print(f"카이제곱 {stat:.2f}, p = {p:.5f}")
 # 카이제곱 14.40, p = 0.00015
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>

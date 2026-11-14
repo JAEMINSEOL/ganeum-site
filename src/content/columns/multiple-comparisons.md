@@ -17,6 +17,8 @@ draft: false
 <p>유의수준 0.05는 지표 하나를 볼 때의 약속입니다. 차이가 전혀 없어도 그 지표가 우연히 유의할 확률을 5%까지 허용한다는 뜻입니다. 지표를 두 개 보면 문이 두 번 열립니다. 10개면 10번입니다.</p>
 <p>A안과 B안이 완전히 같은 실험을 1만 번 돌리면서, 서로 독립인 지표를 20개까지 늘려 가며 세어 보겠습니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import numpy as np
 from scipy.stats import norm
@@ -40,6 +42,8 @@ for k in (1, 3, 5, 10, 20):
 # 지표 10개를 볼 때 하나라도 p < 0.05 : 39.4%
 # 지표 20개를 볼 때 하나라도 p < 0.05 : 64.3%
 ```
+
+</details>
 
 <figure>
 <svg viewBox="0 0 620 215" role="img" aria-label="보는 지표 수가 늘수록 하나라도 유의할 확률이 5퍼센트에서 64퍼센트까지 오르는 막대그래프" style="max-width:100%;height:auto">

@@ -29,6 +29,8 @@ draft: false
 <p class="caption">그림 1. <a class="term" href="#term-retention" data-tip="리텐션(retention): 처음 온 사람 가운데 정해진 시점에 다시 온 사람의 비율. 달력, 범위, 롤링 세 정의가 있다.">리텐션</a>의 세 가지 정의. 같은 N에 대해 달력 ≤ 범위, 달력 ≤ 롤링이 항상 성립합니다.</p>
 <p>공개 데이터로 세 정의를 같은 <a class="term" href="#term-cohort" data-tip="코호트(cohort): 같은 기준일에 시작한 사람들의 묶음. 기준일이 분모를 정한다.">코호트</a>에 적용해 보겠습니다. UCI에 CC BY 4.0으로 공개된 영국 온라인 소매점의 거래 기록을 씁니다. 2010년 1월부터 3월 사이에 첫 구매를 한 고객 1,200명을 <a class="term" href="#term-cohort" data-tip="코호트(cohort): 같은 기준일에 시작한 사람들의 묶음. 기준일이 분모를 정한다.">코호트</a>로 잡고 이후 달에 구매했는지를 활동으로 봅니다. 앱의 일 단위 대신 월 단위이지만 구조는 같습니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import pandas as pd
 
@@ -49,6 +51,8 @@ for n in (1, 3, 6, 12):
 # M6  달력  23.3%  범위  66.1%  롤링  76.5%
 # M12 달력  19.2%  범위  80.0%  롤링  62.2%
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>

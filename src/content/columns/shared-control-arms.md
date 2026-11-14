@@ -18,6 +18,8 @@ draft: false
 
 <p>실험군 11개가 전부 효과 0인 상황을 1만 번 시뮬레이션했습니다. 그룹당 1만 명, 전환율 5%입니다. 한 번은 대조군 하나를 11개가 나눠 쓰고, 다른 한 번은 실험군마다 독립 대조군을 둡니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import numpy as np
 from scipy.stats import norm
@@ -45,6 +47,8 @@ for name, p in (("공유 대조군", p_shared), ("독립 대조군", p_indep)):
 # 공유 대조군: 하나라도 유의 29.6%, 3개 이상 동시 유의 5.8%
 # 독립 대조군: 하나라도 유의 43.4%, 3개 이상 동시 유의 1.6%
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>
