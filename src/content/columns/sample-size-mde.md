@@ -35,6 +35,8 @@ draft: false
 
 <p>기저 전환율 5%, 유의수준 0.05 양측, 검출력 80%로 고정하고 잡고 싶은 차이만 바꿔 가며 계산해 보겠습니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import numpy as np
 from scipy.stats import norm
@@ -54,6 +56,8 @@ for rel in (0.05, 0.10, 0.20, 0.50):
 # 상대 +20% (5.00% -> 6.00%) : 그룹당     8,158명
 # 상대 +50% (5.00% -> 7.50%) : 그룹당     1,471명
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>

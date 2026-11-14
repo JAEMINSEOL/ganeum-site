@@ -36,6 +36,8 @@ draft: false
 <p>데이터가 들어오면 사전분포는 사후분포로 바뀌는데, 베타분포에서는 성공 수와 실패 수를 더하는 것으로 끝납니다. A안은 Beta(1 + 50, 1 + 950), B안은 Beta(1 + 68, 1 + 932)입니다.</p>
 <p>그다음은 두 분포에서 전환율을 20만 번씩 뽑아 B가 A보다 큰 비율을 세는 것입니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import numpy as np
 
@@ -51,6 +53,8 @@ print(f"B를 택했을 때 기대 손실   : {np.maximum(a - b, 0).mean()*100:.3
 # 상대 개선의 기댓값        : +37.9%  (95% 구간 -4.5% ~ +93.5%)
 # B를 택했을 때 기대 손실   : 0.019%p
 ```
+
+</details>
 
 <figure>
 <svg viewBox="0 0 620 215" role="img" aria-label="A안과 B안 전환율의 사후분포 두 곡선. B안 곡선이 오른쪽에 있고 두 곡선이 일부 겹친다" style="max-width:100%;height:auto">

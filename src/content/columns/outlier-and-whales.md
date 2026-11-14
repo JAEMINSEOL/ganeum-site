@@ -19,6 +19,8 @@ draft: false
 <p>쏠림은 꼭대기에서 급해집니다. 상위 10%인 417명이 매출의 60.2%, 상위 1%인 42명이 31.0%, 상위 0.1%인 4명이 10.3%를 냅니다. 1위 고객 한 명의 구매액 259,886은 평균의 139배이고 전체 매출의 3.3%입니다.</p>
 <p>업계에서는 결제액 상위 극소수 유저를 <a class="term" href="#term-whale" data-tip="고래(whale): 결제액 상위 극소수 유저를 가리키는 업계 용어. 보통 상위 1% 안팎이며, 이 글에서는 상위 1%를 기준으로 썼다.">고래</a>라고 부릅니다. 어디까지를 <a class="term" href="#term-whale" data-tip="고래(whale): 결제액 상위 극소수 유저를 가리키는 업계 용어. 보통 상위 1% 안팎이며, 이 글에서는 상위 1%를 기준으로 썼다.">고래</a>로 볼지는 정해진 기준이 없고, 이 글에서는 상위 1%를 기준으로 씁니다. <a class="term" href="#term-whale" data-tip="고래(whale): 결제액 상위 극소수 유저를 가리키는 업계 용어. 보통 상위 1% 안팎이며, 이 글에서는 상위 1%를 기준으로 썼다.">고래</a>를 <a class="term" href="#term-outlier" data-tip="이상치(outlier): 나머지 값들과 동떨어진 값. 오류일 수도, 고래의 구매액처럼 실제 값일 수도 있다.">이상치</a>로 볼지는 뒤에서 다시 다룹니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 import numpy as np, pandas as pd
 
@@ -43,6 +45,8 @@ print(f"윈저라이즈 상한 {cap:,.0f}  처리 후 평균 {w.mean():,.0f} ({(
 # 상위   10% (417명)의 합 = 전체의 60.2%
 # 윈저라이즈 상한 17,061  처리 후 평균 1,461 (-21.7%)
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>
@@ -87,6 +91,8 @@ print(f"윈저라이즈 상한 {cap:,.0f}  처리 후 평균 {w.mean():,.0f} ({(
 <p>1위 고객 한 명이 A에서 B로 옮겨 가면 B의 합은 259,886 늘고 A의 합은 그만큼 줄어, 그룹당 2,083명 기준으로 B와 A의 평균 차이가 약 250 벌어집니다. 평균의 13.4%에 해당하는 크기가 고객 한 명의 배정에 달려 있습니다.</p>
 <p>상위 1% 값을 99분위 상한인 17,061로 눌러 두는 <a class="term" href="#term-winsorize" data-tip="윈저라이즈(winsorizing): 정한 상한(예: 99분위)을 넘는 값을 상한 값으로 바꾸는 처리. 값을 버리지 않고 눌러 둔다.">윈저라이즈</a>를 거치면 차이의 표준편차는 76.2로 평균의 4.1%가 되고, <a class="term" href="#term-median" data-tip="중앙값(median): 값을 크기순으로 늘어놓았을 때 한가운데 오는 값. 가장 큰 값이 아무리 커져도 움직이지 않는다.">중앙값</a>으로 비교하면 27.9로 1.5%가 됩니다. 표준편차가 3.3배 크면 같은 차이를 같은 확률로 잡는 데 필요한 표본은 3.3의 제곱인 약 11배가 됩니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 rng = np.random.default_rng(seed=2026)
 T = 10_000; half = n // 2
@@ -119,6 +125,8 @@ print(f"  A의 상위 3명: {', '.join(f'{x:,.0f}' for x in top_a[::-1])}  |  B�
 #   A의 상위 3명: 59,011, 56,915, 46,200  |  B의 상위 3명: 259,886, 220,337, 190,960
 ```
 
+</details>
+
 <div class="table-scroll">
 <table>
 <thead><tr><th>비교 방법</th><th>B−A 차이의 표준편차</th><th>평균 대비</th><th>차이가 5%를 넘은 배정</th></tr></thead>
@@ -150,6 +158,8 @@ print(f"  A의 상위 3명: {', '.join(f'{x:,.0f}' for x in top_a[::-1])}  |  B�
 <p>실험이 아닌 월별 비교에서도 같은 일이 생깁니다. 2010년 12월부터 2011년 11월까지 활성 고객당 구매액의 전월 대비 변화를 원본 평균, 상위 1% <a class="term" href="#term-winsorize" data-tip="윈저라이즈(winsorizing): 정한 상한(예: 99분위)을 넘는 값을 상한 값으로 바꾸는 처리. 값을 버리지 않고 눌러 둔다.">윈저라이즈</a> 평균, <a class="term" href="#term-median" data-tip="중앙값(median): 값을 크기순으로 늘어놓았을 때 한가운데 오는 값. 가장 큰 값이 아무리 커져도 움직이지 않는다.">중앙값</a>으로 각각 계산하면 11쌍 가운데 4쌍에서 부호가 갈립니다. 2011년 6월은 원본 평균이 +3.8%인데 <a class="term" href="#term-winsorize" data-tip="윈저라이즈(winsorizing): 정한 상한(예: 99분위)을 넘는 값을 상한 값으로 바꾸는 처리. 값을 버리지 않고 눌러 둔다.">윈저라이즈</a>는 −7.9%, <a class="term" href="#term-median" data-tip="중앙값(median): 값을 크기순으로 늘어놓았을 때 한가운데 오는 값. 가장 큰 값이 아무리 커져도 움직이지 않는다.">중앙값</a>은 −9.6%이고, 7월은 그 반대입니다.</p>
 <p>자른 뒤가 정답이라는 뜻은 아닙니다. <a class="term" href="#term-whale" data-tip="고래(whale): 결제액 상위 극소수 유저를 가리키는 업계 용어. 보통 상위 1% 안팎이며, 이 글에서는 상위 1%를 기준으로 썼다.">고래</a>의 구매액도 실제 매출이고, 질문이 총 매출이 늘었느냐라면 원본 평균이 답에 가깝습니다. 질문이 보통 고객이 더 쓰게 되었느냐라면 <a class="term" href="#term-median" data-tip="중앙값(median): 값을 크기순으로 늘어놓았을 때 한가운데 오는 값. 가장 큰 값이 아무리 커져도 움직이지 않는다.">중앙값</a>이나 <a class="term" href="#term-winsorize" data-tip="윈저라이즈(winsorizing): 정한 상한(예: 99분위)을 넘는 값을 상한 값으로 바꾸는 처리. 값을 버리지 않고 눌러 둔다.">윈저라이즈</a>가 답에 가깝습니다. 부호가 갈린다는 사실은 두 질문의 답이 다르다는 뜻이고, 어느 질문인지는 결과가 아니라 설계가 정합니다.</p>
 
+<details class="code"><summary>검증 코드 보기</summary>
+
 ```python
 m = d[(d.date >= "2010-12-01") & (d.date <= "2011-11-30")].copy()
 m["ym"] = m.date.dt.to_period("M")
@@ -177,6 +187,8 @@ for p, q in zip(months[:-1], months[1:]):
 # 2011-10    +1.2%    +3.0%    -0.6%  부호 불일치
 # 2011-11    -9.3%    -3.9%    -2.6%
 ```
+
+</details>
 
 <div class="table-scroll">
 <table>
