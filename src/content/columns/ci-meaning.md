@@ -173,7 +173,7 @@ print(f"참값 {p_true}, n={n}, {reps}번 반복: 참값을 포함한 구간 {hi
 ## 참고
 
 <ol>
-<li id="ref-1">Greenland, S., Senn, S. J., Rothman, K. J., Carlin, J. B., Poole, C., Goodman, S. N., &amp; Altman, D. G. (2016). Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations. <em>European Journal of Epidemiology</em>, 31(4), 337–350. https://doi.org/10.1007/s10654-016-0149-3</li>
+<li id="ref-1">Greenland, S., Senn, S. J., Rothman, K. J., Carlin, J. B., Poole, C., Goodman, S. N., &amp; Altman, D. G. (2016). Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations. <em>European Journal of Epidemiology</em>, 31(4), 337-350. https://doi.org/10.1007/s10654-016-0149-3</li>
 <li id="ref-2">Vaz, F. Marketing A/B Testing [Dataset]. Kaggle. https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing (CC0)</li>
 </ol>
 <p class="refs">그림 1과 3, 4의 구간은 비율의 정규 근사(표본 비율 ± 1.96 × <a class="term" href="#term-se" data-tip="표준오차(standard error): 표본을 다시 뽑을 때 요약값이 흔들리는 정도. 비율은 p(1−p)/n의 제곱근.">표준오차</a>)로 계산했습니다. 그림 1의 모집단은 설명을 위해 만든 것이고, 표본 추출은 numpy의 default_rng(seed=2026)으로 400명씩 1,000번 뽑았습니다. 그림 4의 수치는 설명을 위해 만든 예시입니다. 그림 5는 Kaggle의 Marketing A/B Testing 데이터(faviovaz, CC0, 588,101행)에서 test group별 converted 비율을 계산한 것이고, 마지막 행의 2,000명은 pandas의 sample(random_state=2026)로 뽑았습니다. 코드 실행 환경은 Python 3.12, numpy 2.5.4, scipy 1.18.1, pandas 3.1.1입니다.</p>

@@ -163,7 +163,7 @@ print(f"효과 크기 φ = {(chi2 / len(m)) ** 0.5:.4f}")
 ## 참고
 
 <ol>
-<li id="ref-1">Welch, B. L. (1947). The generalization of 'Student's' problem when several different population variances are involved. <em>Biometrika</em>, 34(1/2), 28–35.</li>
+<li id="ref-1">Welch, B. L. (1947). The generalization of 'Student's' problem when several different population variances are involved. <em>Biometrika</em>, 34(1/2), 28-35.</li>
 <li id="ref-2">Cohen, J. (1988). <em>Statistical Power Analysis for the Behavioral Sciences</em> (2nd ed.). Lawrence Erlbaum Associates.</li>
 <li id="ref-3">Chen, D. (2012). <em>Online Retail II</em> [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5CG6D</li>
 <li id="ref-4">Vaz, F. Marketing A/B Testing [Dataset]. Kaggle. https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing (CC0)</li>

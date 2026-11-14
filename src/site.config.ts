@@ -18,7 +18,8 @@ export const APP_URL = 'https://ganeum-web-586607323563.asia-northeast3.run.app'
 // SITE_TITLE: 홈 제목. PAGE_TITLES: 페이지별 제목(앞부분). 각 칼럼 글은 "칼럼 제목 | 가늠" 으로 자동.
 // 2026-11-11 운영자 규칙: 보이는 글자에 가운데점, 줄표를 쓰지 않는다(제목 구분은 " | ").
 // 검색 결과에는 앞쪽 약 30자만 보이므로 핵심어를 앞에 둔다.
-export const SITE_TITLE = '가늠 | AI 데이터 분석, 소규모 데이터 분석 의뢰';
+// 2026-11-14 운영자 결정: 브랜드명은 가늠 유지, "데이터 닥터"는 부제와 설명 자리에만.
+export const SITE_TITLE = '가늠 | 데이터 닥터, AI 데이터 분석과 분석 의뢰';
 export const PAGE_TITLES = {
   request: '데이터 분석 의뢰, 상담과 견적 무료',
   columns: '데이터 분석 칼럼',
