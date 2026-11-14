@@ -189,3 +189,9 @@ img, svg { max-width: 100%; }
 .timeline { min-width: 620px; }
 .timeline th, .timeline td { text-align: center !important; padding: 6px 4px !important; }
 .timeline th:nth-child(9), .timeline td:nth-child(9) { background: var(--code-bg); }
+
+/* 칼럼 검증 코드 접기 (15편부터) */
+.prose details.code { margin: 20px 0; }
+.prose details.code summary { color: var(--accent); font-weight: 600; font-size: var(--fs-small); cursor: pointer; }
+.prose details.code summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.prose details.code[open] summary { margin-bottom: 8px; }
