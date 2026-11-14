@@ -79,7 +79,7 @@ const cta = ctaB
   .cta-title { margin: 0 0 8px; font-size: var(--fs-h3); font-weight: 700; }
   .cta-body { margin: 0 0 18px; font-size: var(--fs-body); line-height: 1.7; color: var(--muted); }
   .a-foot { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--hair); font-size: var(--fs-small); }
-  .a-foot a { text-decoration: none; color: var(--muted); }
+  .a-foot a { text-decoration: none; color: var(--muted); display: inline-flex; align-items: center; min-height: 44px; }
 
   .prose { font-size: var(--fs-lead); line-height: 1.8; word-break: keep-all; overflow-wrap: anywhere; }
   .prose :global(h2) { font-size: var(--fs-h2); font-weight: 700; line-height: 1.18; margin: 56px 0 12px; letter-spacing: -0.025em; scroll-margin-top: 24px; }
@@ -100,9 +100,36 @@ const cta = ctaB
   .prose :global(th), .prose :global(td) { border-bottom: 1px solid var(--hair); padding: 8px 10px; text-align: left; }
   .prose :global(th) { border-bottom: 1px solid var(--rule); font-weight: 600; line-height: 1.25; }
   .prose :global(.table-scroll) { overflow-x: auto; margin: 28px 0 0; }
+  /* 표 칸: 본문의 overflow-wrap: anywhere 가 칸 최소 폭을 한 글자까지 줄이므로 표 안에서는 끈다.
+     숫자 칸(.num, 빌드 단계에서 붙음)은 한 줄로, 글자 칸은 어절 단위로 끊고 최소 폭을 둔다.
+     표가 화면보다 넓으면 .table-scroll 이 가로로 밀리고, 양옆 그림자로 더 있다는 것을 보인다 */
+  .prose :global(table) { overflow-wrap: normal; word-break: keep-all; }
+  .prose :global(:is(td, th).num) { white-space: nowrap; }
+  .prose :global(th) { min-width: 3.5em; }
+  .prose :global(td:not(.num)) { min-width: 7em; }
+  .prose :global(:is(th, td)) { padding: 8px 12px 8px 0; }
+  .prose :global(tr > :last-child) { padding-right: 0; }
+  .prose :global(.table-scroll),
+  .prose :global(figure:has(> svg)) {
+    overscroll-behavior-x: contain;
+    background:
+      linear-gradient(to right, var(--bg) 30%, transparent) left / 24px 100% no-repeat local,
+      linear-gradient(to left, var(--bg) 30%, transparent) right / 24px 100% no-repeat local,
+      radial-gradient(farthest-side at 0 50%, color-mix(in srgb, var(--text) 22%, transparent), transparent) left / 10px 100% no-repeat scroll,
+      radial-gradient(farthest-side at 100% 50%, color-mix(in srgb, var(--text) 22%, transparent), transparent) right / 10px 100% no-repeat scroll;
+  }
   .prose :global(figure) { margin: 32px 0; }
   .prose :global(figcaption), .prose :global(.caption) { font-size: var(--fs-small); color: var(--muted); text-align: center; margin: 10px 0 28px; }
   .prose :global(.refs) { font-size: var(--fs-small); color: var(--muted); }
   /* 칼럼 그림(SVG) 안 글자도 사이트 서체로 — 본문 SVG의 font-family 속성보다 CSS가 우선한다 */
   .prose :global(svg text), .prose :global(svg g) { font-family: var(--sans); font-variant-numeric: tabular-nums; }
+  /* 좁은 화면: 그림(SVG)을 600px 폭으로 두고 가로로 밀어 보게 한다 (글자 13단위가 화면 12px 이상).
+     여러 줄 그림 설명은 왼쪽 정렬, 요약 인용은 줄 간격을 줄인다 */
+  @media (max-width: 600px) {
+    .prose :global(figure:has(> svg)) { overflow-x: auto; }
+    .prose :global(figure > svg) { min-width: 600px; }
+    .prose :global(figure > figcaption) { position: sticky; left: 0; }
+    .prose :global(figcaption), .prose :global(.caption) { text-align: left; }
+    .prose :global(blockquote) { line-height: 1.6; }
+  }
 </style>

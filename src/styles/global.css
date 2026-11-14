@@ -110,7 +110,10 @@ a { color: inherit; }
 button, input, select, textarea { font-family: inherit; }
 /* 한국어 줄바꿈: 어절 단위로 끊고, 마지막 줄에 한 글자만 남지 않게 */
 body { word-break: keep-all; overflow-wrap: anywhere; }
-p, li, dd, blockquote { text-wrap: pretty; }
+/* 표 칸과 버튼은 anywhere 를 끈다: anywhere 는 칸과 버튼의 최소 폭 계산에도 들어가 글자 단위로 쪼갠다 */
+table, .btn, button { overflow-wrap: break-word; }
+p, li, dd, blockquote, td, figcaption { text-wrap: pretty; }
+th { text-wrap: balance; }
 h1, h2, h3, h4 { text-wrap: balance; }
 strong, b, h1, h2, h3, h4 { font-synthesis: none; }
 /* 기울임꼴이 없는 서체 — 강조는 굵기로 */
@@ -118,6 +121,8 @@ strong, b, em, i { font-weight: 600; font-style: normal; }
 code, kbd, samp, pre { font-family: var(--mono); }
 table, time { font-variant-numeric: tabular-nums; }
 img, svg { max-width: 100%; }
+/* 숫자와 단위처럼 한 덩어리로 읽어야 하는 말 (원고에서 <span class="nw"> 로 묶는다) */
+.nw { white-space: nowrap; }
 
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 @media (min-width: 720px) { .wrap { padding: 0 48px; } }
@@ -156,19 +161,24 @@ img, svg { max-width: 100%; }
   .wordmark { padding: 12px 0; }
   .wordmark-img { height: 24px; }
 }
-.nav { display: flex; align-items: center; gap: 28px; font-size: var(--fs-body); }
-.nav a { text-decoration: none; color: var(--muted); }
+.nav { display: flex; align-items: center; gap: 12px; font-size: var(--fs-body); }
+/* 누르는 영역 44px 이상: 링크마다 양옆 8px 여백을 두고 그만큼 간격과 바깥 여백을 줄여 글자 자리는 그대로 둔다 */
+.nav { margin-right: -8px; }
+.nav a { text-decoration: none; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 46px; padding: 0 8px; }
 .nav a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 480px) { .nav { gap: 16px; } }
+@media (max-width: 480px) { .nav { gap: 0; } }
 
 /* footer */
 .site-footer { border-top: 1px solid var(--rule); margin-top: 96px; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 40px; font-size: var(--fs-small); color: var(--muted); }
 .site-footer a { text-decoration: none; }
-.site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 0; margin: 0 -10px; }
+/* 누르는 영역 44px 이상 (글자 크기는 그대로) */
+.site-footer nav a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 46px; padding: 0 10px; }
 .site-footer .biz { font-style: normal; display: flex; flex-wrap: wrap; gap: 2px 6px; flex-basis: 100%; order: 3; }
 /* 항목 사이 쉼표 (2026-11-11 운영자 규칙: 가운데점을 쓰지 않는다). 쉼표 뒤 띄움은 gap 이 맡는다 */
 .site-footer .biz span:not(:last-child)::after { content: ","; }
+.site-footer .biz span { white-space: nowrap; }
 
 /* column list */
 .list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 40px 0 8px; border-bottom: 1px solid var(--hair); }
@@ -192,6 +202,6 @@ img, svg { max-width: 100%; }
 
 /* 칼럼 검증 코드 접기 (15편부터) */
 .prose details.code { margin: 20px 0; }
-.prose details.code summary { color: var(--accent); font-weight: 600; font-size: var(--fs-small); cursor: pointer; }
+.prose details.code summary { color: var(--accent); font-weight: 600; font-size: var(--fs-small); cursor: pointer; padding: 10px 0; }
 .prose details.code summary:hover { text-decoration: underline; text-underline-offset: 3px; }
-.prose details.code[open] summary { margin-bottom: 8px; }
+.prose details.code[open] summary { margin-bottom: 0; }
