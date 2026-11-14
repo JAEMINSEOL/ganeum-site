@@ -7,7 +7,7 @@ const columns = (await getColumns()).slice(0, 4);
 const devAppUrl = import.meta.env.DEV ? import.meta.env.PUBLIC_APP_URL : undefined;
 const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
 ---
-<Base>
+<Base description="내 서비스가 잘 되고 있는지, 더 잘할 수 있는지 모르겠다면. 데이터 닥터 가늠이 데이터 분석으로 문제를 해결하고, 다음 전략을 찾아 드립니다. 분석 의뢰는 1만 원부터, AI로 직접 분석해 볼 수도 있습니다.">
 <div class="ruler" aria-hidden="true">
   <div class="scale"></div>
   <span class="lab" style="top:0">0</span><span class="lab" style="top:33%">의뢰</span>
@@ -18,8 +18,8 @@ const appUrl = (devAppUrl || APP_URL || '').replace(/\/$/, '');
   <section class="scene intro" id="intro" aria-labelledby="t1">
     <div class="wrap">
       <div class="intro-head fx">
-        <h1 id="t1"><b>쉽고 빠른<br>맞춤형 <span class="nw">분석 서비스</span></b></h1>
-        <p class="lede">나에게 맞는 분석을 가늠에서 찾아보세요</p>
+        <h1 id="t1"><b><span class="nw">잘 되고 있는지,</span> <span class="nw">더 잘할 수 있는지</span> <span class="nw">모르겠다면</span></b></h1>
+        <p class="lede">데이터 분석으로 문제를 해결하고, <span class="nw">다음 전략을</span> 찾아 드립니다.</p>
       </div>
       <div class="instrument fx" aria-label="레이더가 찾은 신호를 직교좌표와 분포로 옮기는 그림">
         <figure class="panel radar-panel">
@@ -136,7 +136,7 @@ p{text-wrap:pretty;margin:0}
 /* 1. 소개: 레이더 → 직교좌표 → 분포 */
 .intro{align-items:flex-start}
 .intro h1{font-size:var(--fs-display);line-height:1.08;letter-spacing:-.035em;font-weight:400}
-.intro h1 .nw{white-space:nowrap}
+.intro h1 .nw,.intro .lede .nw{white-space:nowrap}
 .intro .lede{color:var(--text);font-size:var(--fs-h3)}
 .intro-head{max-width:760px}
 .instrument{display:grid;gap:10px;margin-top:32px;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:auto auto;align-items:center}
