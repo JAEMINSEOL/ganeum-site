@@ -332,4 +332,15 @@ const EFFECTIVE = '2026년 11월 5일';
   th, td { border: 1px solid var(--rule); padding: 8px 10px; text-align: left; vertical-align: top; }
   th { background: var(--surface); font-weight: 600; }
   code { font-size: var(--fs-small); }
+  /* 좁은 화면: 3열 표를 행마다 쌓는다. 첫 칸은 굵은 제목, 나머지 칸 위에는 머리글 이름(data-label, 빌드 단계에서 붙음).
+     구분선은 행 사이에만 둔다. 데스크톱 표는 그대로 */
+  @media (max-width: 520px) {
+    .table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .table table, .table tbody, .table tr, .table td { display: block; width: auto; }
+    .table tr { border-top: 1px solid var(--rule); padding: 12px 0; }
+    .table tr:last-child { border-bottom: 1px solid var(--hair); }
+    .table td { border: 0; padding: 2px 0 6px; }
+    .table td:first-child { font-weight: 600; font-size: var(--fs-body); }
+    .table td:not(:first-child)::before { content: attr(data-label); display: block; font-size: var(--fs-caption); color: var(--muted); }
+  }
 </style>

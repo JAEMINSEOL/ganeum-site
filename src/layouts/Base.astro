@@ -74,5 +74,20 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       </div>
     </footer>
     <ViewCountScript />
+    <script is:inline>
+      // 빌드 단계에서 괄호와 조사 사이에 넣은 보이지 않는 연결 문자(U+2060)를 복사할 때 지운다
+      document.addEventListener('copy', function (e) {
+        var sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !e.clipboardData) return;
+        var wj = new RegExp(String.fromCharCode(0x2060), 'g');
+        var text = sel.toString();
+        if (!wj.test(text)) return;
+        var box = document.createElement('div');
+        for (var i = 0; i < sel.rangeCount; i++) box.appendChild(sel.getRangeAt(i).cloneContents());
+        e.clipboardData.setData('text/plain', text.replace(wj, ''));
+        e.clipboardData.setData('text/html', box.innerHTML.replace(wj, ''));
+        e.preventDefault();
+      });
+    </script>
   </body>
 </html>
