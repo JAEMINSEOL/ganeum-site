@@ -26,6 +26,24 @@ const products = [
     example: '예: 분석하기 1회, 또는 가벼운 분석 질문 3회',
   },
   {
+    id: 'ticket-5',
+    count: 5,
+    short: '티켓 5장',
+    name: '가늠 분석 티켓 5장',
+    price: '1,650원',
+    unit: '1장 330원',
+    example: '예: 분석하기 1회와 자세한 분석 질문 1회',
+  },
+  {
+    id: 'ticket-10',
+    count: 10,
+    short: '티켓 10장',
+    name: '가늠 분석 티켓 10장',
+    price: '3,300원',
+    unit: '1장 330원',
+    example: '예: 분석하기 3회와 가벼운 분석 질문 1회',
+  },
+  {
     id: 'ticket-30',
     count: 30,
     short: '티켓 30장',
@@ -40,7 +58,7 @@ const deliveryRest = '결제가 끝나면 티켓이 바로 계정에 들어옵�
 const period = '결제일부터 365일(1년) 동안 사용할 수 있습니다.';
 const cardRefund = '쓰지 않은 티켓은 결제일부터 7일 안 전액, 그 뒤 결제일부터 365일 안에 신청하면 1장당 330원 환불';
 ---
-<Base title={PAGE_TITLES.pricing} description="가늠 분석 티켓 3장(990원)과 30장(9,900원)의 구성, 제공 방식, 서비스 제공 기간(결제일부터 1년), 환불 정책, 판매자 정보를 안내합니다.">
+<Base title={PAGE_TITLES.pricing} description="가늠 분석 티켓 3장(990원), 5장(1,650원), 10장(3,300원), 30장(9,900원)의 구성, 제공 방식, 서비스 제공 기간(결제일부터 1년), 환불 정책, 판매자 정보를 안내합니다.">
   <article class="pricing">
     <h1>티켓 상품 안내</h1>
     <p class="lede">가늠 AI 데이터 분석에 쓰는 티켓입니다. 구매할 때마다 한 번 결제하며, 정기결제나 자동 갱신은 없습니다.</p>
